@@ -30,7 +30,6 @@ function addEventListeners() {
     registerBtn.addEventListener('click', Event => {
         alert('Byter sida till registreringssidan')
         window.location.href="./pages/register.html"
-
     });  
 }
 
