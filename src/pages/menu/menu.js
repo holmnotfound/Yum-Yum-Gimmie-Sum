@@ -1,6 +1,5 @@
 
 export function buildMenu(menu) {
-    
     menu.items.forEach((menuItem) => {
         
         if(menuItem.type === 'wonton'){
