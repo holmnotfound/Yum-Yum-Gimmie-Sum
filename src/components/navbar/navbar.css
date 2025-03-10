@@ -8,6 +8,7 @@ body{
 }
 
 .nav{
+    background-color: red;
     font-family: 'Fira Sans';
     margin: 16px;
 }
@@ -25,8 +26,8 @@ body{
     
 }
 .nav__list-hamburger, .nav__list-close{
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 }
 
 .nav__list-element#x-solid{
@@ -87,4 +88,8 @@ body{
 .nav__list-arrrow{
     width: 25px;
     padding-right: 15px;
+}
+
+#kundkorg{
+    padding-right: 10px;
 }

@@ -1,17 +1,17 @@
-import { placeHolderData } from "../../../main.js";
+/* import { placeHolderData } from "../../../main.js"; */
 
 export const userShoppingCart = () => {
     let shoppingCart = [];
 
     return {
-        addItemToCart: function(id) {
+        /* addItemToCart: function(id) {
             const itemToBeAdded = placeHolderData.items.find(item => item.id === id);
             shoppingCart.push(itemToBeAdded);
         },
         removeItemFromCart: function(id) {
             const itemToBeRemoved = shoppingCart.findIndex(item => item.id === id);
             shoppingCart.splice(itemToBeRemoved, 1);
-        },
+        }, */
         getShoppingCart: function() {
             console.log(shoppingCart)
             return shoppingCart;
