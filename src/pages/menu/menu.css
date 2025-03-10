@@ -1,0 +1,108 @@
+:root {
+    font-family: "fira sans";
+}
+
+body {
+    background-image: url('/images/background-leaf-250307.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 4em auto;
+}
+
+.menu__heading {
+    color: var(--text-white);
+    background-color: var(--menu);
+    padding-left: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.menu__wontons {
+    display: flex;
+    flex-direction: column;  
+}
+
+.menu__wonton {
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: var(--menu);
+    color: var(--text-white);
+    border-top: 1px dotted;
+    cursor: pointer;
+}
+
+.menu__wonton:hover {
+    background-color: var(--menulight);
+}
+
+.menu__wonton-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu__wonton-name h3 {
+    font-size: var(--menu-item-title);
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+}
+
+.menu__wonton-detail p {
+    font-size: var(--menu-item-description);
+    margin-top: 0em;
+}
+
+.menu__dips,
+.menu__drinks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1em;
+    gap: 1em;
+    font-size: var(--menu-item-description);
+    background-color: var(--menu);
+}
+
+.menu__dips-price,
+.menu__drinks-price {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-white);
+    background-color: var(--menu);
+    padding-left: 1em;
+    padding-right: 1em;
+    border-top: 1px dotted var(--text-white); 
+}
+
+.menu__dips-price h3,
+.menu__drinks-price h3 {
+    font-size: var(--menu-item-title);
+    margin-bottom: 0.5em;
+    
+}
+
+.menu__dips-dip,
+.menu__drinks-drink {
+    background-color: var(--menulight);
+    color: var(--text-white);
+    border-radius: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    cursor: pointer;
+}
+
+.menu__dips-dip:hover,
+.menu__drinks-drink:hover {
+    background-color: var(--coal);
+}
