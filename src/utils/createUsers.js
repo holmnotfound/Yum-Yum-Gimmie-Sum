@@ -1,4 +1,5 @@
 import { menuNew } from "../storage/data.js";
+import { storeUsers } from "./usersStorage.js";
 
 class User {
     constructor(username, password, role, email, profile_image) {
@@ -35,9 +36,17 @@ export class Customer extends User {
     //Handle orders
     addItemToShoppingCart(itemID) {
         const itemToBeAdded = menuNew.items.find(item => item.id === itemID);
-        this.shoppingCart.push(itemToBeAdded);
+        
+        const itemExists = this.shoppingCart.find(item => itemToBeAdded.id === item.id)
+        
+        if (itemExists) {
+            itemExists.quantity++;
+        }
+        else {
+            this.shoppingCart.push({...itemToBeAdded, quantity: 1});
+        }
+        storeUsers.saveUsers()
     }
-    
     removeItemFromCart(itemID) {
         const itemToBeRemoved = this.shoppingCart.findIndex(item => item.id === itemID);
         this.shoppingCart.splice(itemToBeRemoved, 1);
@@ -47,6 +56,7 @@ export class Customer extends User {
         return [...this.shoppingCart];
     }
     
+    //Handle order history
     addOrderHistoryEvent() {
         /* Ska skapa ett orderhistory event av vid tillfället den shoppingcart vid köp */
     }
