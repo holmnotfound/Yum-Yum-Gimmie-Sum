@@ -1,5 +1,6 @@
+import { userShoppingCart } from "./shoppingCartStorage.js";
 
-export const setUpShoppingCart = (items) => {
+export const setUpShoppingCart = (shoppingCart) => {
     const shoppingCartContainer = document.createElement('section');
     shoppingCartContainer.classList.add('shopping-cart__container');
     
@@ -9,11 +10,14 @@ export const setUpShoppingCart = (items) => {
     shoppingCartContainer.appendChild(shoppingCartImg)
 
     const shoppingCartList = document.createElement('ul');
+    shoppingCartList.replaceChildren();
     shoppingCartList.classList.add('shopping-cart__list')
     shoppingCartList.setAttribute('aria-hidden', 'true');
     shoppingCartContainer.appendChild(shoppingCartList);
     
-    items.forEach((item) => {
+/*     const shoppingCart = shoppingCartStorage.getCartInfo();
+ */
+    shoppingCart.forEach((item) => {
         const menuItemElement = createShoppingCartHTML(item);
         shoppingCartList.innerHTML += `${menuItemElement}`
     })
@@ -22,7 +26,7 @@ export const setUpShoppingCart = (items) => {
 }
 
 const createShoppingCartHTML = (item) => {
-    const{id, type, name, description, ingredients, price} = item; 
+    const{id, type, name, description, price, quantity} = item; 
 
     return `
         <li class="shopping-cart__list-item" data-id=${id}>
@@ -30,7 +34,7 @@ const createShoppingCartHTML = (item) => {
                 <a class="shopping-cart__decrement-product">
                     <img class="arrow arrow-decrement" src="./images/arrow-decrement.svg" alt="Remove ${name} from your order"/>
                 </a>
-                <span class="number-of-products">0</span>
+                <span class="number-of-products">${quantity}</span>
                 <a class="shopping-cart__increment-product">
                     <img class="arrow arrow-increment" src="./images/arrow-increment.svg" alt="Add another ${name} to your order"/>
                 </a>

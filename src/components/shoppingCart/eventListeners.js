@@ -25,15 +25,14 @@ const changeProductAmount = () => {
     
     shoppingCartList.addEventListener('click', (e) => {
         const itemID = e.target.closest('li').getAttribute('data-id')
-        console.log(itemID);
 
         if (e.target.classList.contains('arrow-increment')) {
             console.log(`increment id: ${itemID}`)
         }
-
         
         if (e.target.classList.contains('arrow-decrement')) {
             console.log(`decrement id: ${itemID}`)
         }
     })
 }
+
