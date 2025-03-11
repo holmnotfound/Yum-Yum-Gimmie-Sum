@@ -55,7 +55,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom-style: solid;
+    border-bottom: solid 1px black;
 
 }
 
