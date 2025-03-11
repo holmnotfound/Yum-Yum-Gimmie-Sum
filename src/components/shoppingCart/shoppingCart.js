@@ -84,5 +84,3 @@ const createEmptyShoppingCartHtml = () => {
         <span class="empty-cart">Your cart is empty!</span>
     `
 }
-
-
