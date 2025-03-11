@@ -6,17 +6,12 @@ import { storeUsers } from "./src/utils/usersStorage.js";
 import { Admin } from "./src/utils/createUsers.js";
 import { setUpShoppingCart } from "./src/components/shoppingCart/shoppingCart.js";
 
-if(window.location.pathname === '/src/pages/menu/menu.html') {
+if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
     buildMenu(menuNew)
     console.log(menuNew);  
 }
 
-
-
-
-
-
-/* storeUsers.clearUsersStorage();
+storeUsers.clearUsersStorage();
 export const activeUser = new Customer('Rasmus', '123', 'Customer', 'rasmus@123.gmail.com', 'google')
 storeUsers.addUserToStorage(activeUser)
 activeUser.addItemToShoppingCart(menuNew.items[0].id)
@@ -32,5 +27,5 @@ calle.addItemToShoppingCart(menuNew.items[0].id)
 calle.addItemToShoppingCart(menuNew.items[0].id)
 calle.addItemToShoppingCart(menuNew.items[7].id)
 
-setUpShoppingCart(activeUser.shoppingCart); */
+setUpShoppingCart(activeUser.shoppingCart);
 
