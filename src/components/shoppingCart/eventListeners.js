@@ -1,4 +1,5 @@
-
+import { activeUser } from "../../../main.js";
+import { renderShoppingCart } from "../../../src/components/shoppingCart/shoppingCart.js";
 
 export const setUpShoppingCartEventListeners = () => {
     toggleShoppingCart();
@@ -11,6 +12,8 @@ const toggleShoppingCart = () => {
     const shoppingCartList = document.querySelector('.shopping-cart__list');
     
     shoppingCartImg.addEventListener('click', () => {
+        renderShoppingCart(activeUser.getShoppingCart())
+
         shoppingCartList.classList.toggle('toggle-cart')
         shoppingCartImg.classList.toggle('spin-cart')
         
