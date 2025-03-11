@@ -19,13 +19,66 @@ h3 {
     text-transform: uppercase;
 }
 
+p {
+    margin-top: 0.5em;
+}
+
 .about {
     display: flex;
     flex-direction: column;
     width: 90%;
     margin: 4em auto;
+    
 }
 
-.about-history {
+.about__history,
+.about__contact {
+    display: flex;
+    justify-content: space-between;
     background-color: var(--menu);
+    width: 100%;
+    padding: 1em;
+    text-align: right;
+    color: var(--text-white);
+}
+
+.about__logo{
+    width: 70%;
+}
+
+.about__logo img{
+    width: 100%;
+}
+
+.about__how {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--text-light-grey);
+    width: 100%;
+    padding: 1em;
+    color: var(--menu);
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.about__flow {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+}
+
+.about__piktogram {
+    width: 20%;
+}
+
+.about__piktogram-arrow {
+    height: 1.5em;
+}
+
+.about__contact {
+    text-align: left;
 }
