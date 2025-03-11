@@ -7,6 +7,5 @@ export async function fetchMenu() {
     menu.items.forEach((menuItem) => {
         menuItem.quantity = 0
     })
-    console.log(menu);
     return menu
 }

@@ -1,3 +1,7 @@
+import { calculateTotal } from "../../utils/calculateTotal.js";
+import { activeUser } from "../../../main.js";
+
+calculateTotal
 
 export const setUpShoppingCart = () => {
     const shoppingCartContainer = document.createElement('section');
@@ -13,6 +17,9 @@ export const setUpShoppingCart = () => {
     shoppingCartList.classList.add('shopping-cart__list')
     shoppingCartList.setAttribute('aria-hidden', 'true');
     shoppingCartContainer.appendChild(shoppingCartList);
+
+    const shoppingCartNav = document.createElement('li');
+    shoppingCartNav.classList.add('shopping-cart__nav');
     
     return shoppingCartContainer; 
 }
@@ -20,6 +27,7 @@ export const setUpShoppingCart = () => {
 export const renderShoppingCart = (shoppingCart) => {
     const shoppingCartList = document.querySelector('.shopping-cart__list');
     shoppingCartList.replaceChildren()
+    
     console.log('Rendering cart')
     
     if (shoppingCart.length === 0) {
@@ -32,6 +40,7 @@ export const renderShoppingCart = (shoppingCart) => {
             shoppingCartList.innerHTML += `${menuItemElement}`
         })
     }
+    shoppingCartList.innerHTML += createShoppingCartNavHTML();
 }
 
 const createShoppingCartHTML = (item) => {
@@ -57,6 +66,15 @@ const createShoppingCartHTML = (item) => {
             </h2>    
             </section>
         </li>    
+    `
+}
+
+const createShoppingCartNavHTML = () => {
+    let total = calculateTotal(activeUser.getShoppingCart())
+    return `
+        <li class="shopping-cart__nav">
+            <h2 class="total-amount">Total: ${total} SEK</h2>
+        </li>
     `
 }
 
