@@ -1,6 +1,5 @@
 
-export const setUpShoppingCart = (shoppingCart) => {
-    console.log(shoppingCart)
+export const setUpShoppingCart = () => {
     const shoppingCartContainer = document.createElement('section');
     shoppingCartContainer.classList.add('shopping-cart__container');
     
@@ -15,12 +14,23 @@ export const setUpShoppingCart = (shoppingCart) => {
     shoppingCartList.setAttribute('aria-hidden', 'true');
     shoppingCartContainer.appendChild(shoppingCartList);
     
-    /* shoppingCart.forEach((item) => {
-        const menuItemElement = createShoppingCartHTML(item);
-        shoppingCartList.innerHTML += `${menuItemElement}`
-    }) */
+    return shoppingCartContainer; 
+}
 
-    return shoppingCartContainer;
+export const renderShoppingCart = (shoppingCart) => {
+    const shoppingCartList = document.querySelector('.shopping-cart__list');
+    shoppingCartList.replaceChildren()
+    
+    if (shoppingCart.length === 0) {
+        const emptyCartElement = createEmptyShoppingCartHtml();
+        shoppingCartList.innerHTML += `${emptyCartElement}`
+    }
+    else {
+        shoppingCart.forEach((item) => {
+            const menuItemElement = createShoppingCartHTML(item);
+            shoppingCartList.innerHTML += `${menuItemElement}`
+        })
+    }
 }
 
 const createShoppingCartHTML = (item) => {
@@ -30,11 +40,11 @@ const createShoppingCartHTML = (item) => {
         <li class="shopping-cart__list-item" data-id=${id}>
             <section class="shopping-cart__navigation">
                 <a class="shopping-cart__decrement-product">
-                    <img class="arrow arrow-decrement" src="./images/arrow-decrement.svg" alt="Remove ${name} from your order"/>
+                    <img class="arrow arrow-decrement" src="../../../images/arrow-decrement.svg" alt="Remove ${name} from your order"/>
                 </a>
                 <span class="number-of-products">${quantity}</span>
                 <a class="shopping-cart__increment-product">
-                    <img class="arrow arrow-increment" src="./images/arrow-increment.svg" alt="Add another ${name} to your order"/>
+                    <img class="arrow arrow-increment" src="../../../images/arrow-increment.svg" alt="Add another ${name} to your order"/>
                 </a>
             </section>
             <section class="shopping-cart__products">
@@ -46,6 +56,12 @@ const createShoppingCartHTML = (item) => {
             </h2>    
             </section>
         </li>    
+    `
+}
+
+const createEmptyShoppingCartHtml = () => {
+    return `
+        <span class="empty-cart">Your cart is empty!</span>
     `
 }
 
