@@ -26,7 +26,7 @@ export function closeSidebar() {
     })
 }
 
-function kundkorg(){
+export function kundkorg(){
     const navbar = document.querySelector('#kundkorg');
     navbar.appendChild(setUpShoppingCart());
 }

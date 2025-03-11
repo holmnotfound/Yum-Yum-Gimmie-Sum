@@ -1,3 +1,5 @@
+import { closeSidebar, clickHam} from "../../components/navbar/navbar.js";
+closeSidebar(), clickHam();
 
 export function buildMenu(menu) {
     menu.items.forEach((menuItem) => {
@@ -15,6 +17,7 @@ export function buildMenu(menu) {
         }
 
     })  
+    console.log('hejsan')
 }
 
 function buildWonton(wonton) {
