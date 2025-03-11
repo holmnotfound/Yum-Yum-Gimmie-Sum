@@ -1,29 +1,43 @@
-
+/* import { activeUser } from "../../main";
+ */
 
 export const storeUsers = {
-    usersStorage: JSON.parse(localStorage.getItem('Users')) || [],
+    localUsers: [],
 
-    addUserToStorage: function (user) {
-        console.log(user)
+    addUserToStorage: function(user) {
         if(user) {
-            this.usersStorage.push(user);
-            localStorage.setItem('Users', JSON.stringify(this.usersStorage));
+            this.localUsers.push(user);
+            this.saveUsers();
+            console.log(this.localUsers)
         }
     },
 
-        removeUserFromStorage: function(user) {
-        let userFound = storeUsers.usersStorage.find((user ) => {
-            return user.id === id;
-        })
-        this.usersStorage.splice(this.usersStorage.indexOf(userFound), 1);
-        localStorage.setItem('Users', JSON.stringify(this.usersStorage));
+    removeUserFromStorage: function(user) {
+    let userFound = this.localUsers.find((user) => {
+        return user.id === id;
+    })
+    this.localUsers.splice(this.usersStorage.indexOf(userFound), 1);
+    this.saveUsers()
     },
 
     clearUsersStorage: function () {
         this.usersStorage = [];
+        this.saveUsers();
     },
 
     getUsersInfo: function () {
         return JSON.parse(localStorage.getItem('Users')) || [];    
+    },
+
+    saveUsers: function() {
+        localStorage.setItem('Users', JSON.stringify(this.localUsers));
+    },
+
+    updateUser: function(user) {
+        this.localUsers.indexOf((targetUser) => {
+            if (targetUser.username === user.username) {
+                this.localUsers.replace(this.usersStorage.indexOf(userFound), user);
+            }
+        })
     }
 }

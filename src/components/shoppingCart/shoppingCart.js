@@ -1,11 +1,11 @@
-import { userShoppingCart } from "./shoppingCartStorage.js";
 
 export const setUpShoppingCart = (shoppingCart) => {
+    console.log(shoppingCart)
     const shoppingCartContainer = document.createElement('section');
     shoppingCartContainer.classList.add('shopping-cart__container');
     
     const shoppingCartImg = document.createElement('img');
-    shoppingCartImg.src = '../../../images/shopping-cart-white.svg';
+    shoppingCartImg.src = './images/shopping-cart-white.svg';
     shoppingCartImg.classList.add('shopping-cart__img')
     shoppingCartContainer.appendChild(shoppingCartImg)
 
@@ -15,12 +15,10 @@ export const setUpShoppingCart = (shoppingCart) => {
     shoppingCartList.setAttribute('aria-hidden', 'true');
     shoppingCartContainer.appendChild(shoppingCartList);
     
-/*     const shoppingCart = shoppingCartStorage.getCartInfo();
- */
-    /* shoppingCart.forEach((item) => {
+    shoppingCart.forEach((item) => {
         const menuItemElement = createShoppingCartHTML(item);
         shoppingCartList.innerHTML += `${menuItemElement}`
-    }) */
+    })
 
     return shoppingCartContainer;
 }
