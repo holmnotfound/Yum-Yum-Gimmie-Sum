@@ -20,6 +20,7 @@ export const setUpShoppingCart = () => {
 export const renderShoppingCart = (shoppingCart) => {
     const shoppingCartList = document.querySelector('.shopping-cart__list');
     shoppingCartList.replaceChildren()
+    console.log('Rendering cart')
     
     if (shoppingCart.length === 0) {
         const emptyCartElement = createEmptyShoppingCartHtml();

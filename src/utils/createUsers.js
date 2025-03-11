@@ -35,7 +35,8 @@ export class Customer extends User {
 
     //Handle orders
     addItemToShoppingCart(itemID) {
-        const itemToBeAdded = menuNew.items.find(item => item.id === itemID);
+        
+        const itemToBeAdded = menuNew.items.find(item => item.id === Number(itemID));
         
         const itemExists = this.shoppingCart.find(item => itemToBeAdded.id === item.id)
         
@@ -48,8 +49,19 @@ export class Customer extends User {
         storeUsers.saveUsers()
     }
     removeItemFromCart(itemID) {
-        const itemToBeRemoved = this.shoppingCart.findIndex(item => item.id === itemID);
-        this.shoppingCart.splice(itemToBeRemoved, 1);
+        const itemToBeRemoved = this.shoppingCart.find(item => item.id === Number(itemID));
+        console.log(itemToBeRemoved)
+
+        if (itemToBeRemoved.quantity > 1) {
+            itemToBeRemoved.quantity--;
+            storeUsers.saveUsers()
+        }
+        else {
+            const index = this.shoppingCart.findIndex(item => item.id === Number(itemID));
+            this.shoppingCart.splice(index, 1);
+            storeUsers.saveUsers();    
+        }
+
     }
     
     getShoppingCart() {
