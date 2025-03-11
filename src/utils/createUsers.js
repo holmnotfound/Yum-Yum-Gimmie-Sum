@@ -50,7 +50,6 @@ export class Customer extends User {
     }
     removeItemFromCart(itemID) {
         const itemToBeRemoved = this.shoppingCart.find(item => item.id === Number(itemID));
-        console.log(itemToBeRemoved)
 
         if (itemToBeRemoved.quantity > 1) {
             itemToBeRemoved.quantity--;
