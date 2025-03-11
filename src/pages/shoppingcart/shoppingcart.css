@@ -1,0 +1,107 @@
+:root {
+    /* Colors */
+    --coal: #353131;
+    --clay: #575757;
+    --menu: #605858;
+    --menulight: #716A6A;
+    --text-light-grey: #F4F3F1;
+    --text-white: #ffffff;
+    --leaf-green: #4A8460;
+    --page-background-color: #8ED8BF;
+
+    /* Font sizes */
+    --page-heading: 32px;
+    --menu-item-title: 22px;
+    --menu-item-description: 14px;
+    --dropdown-menu-item: 24px;
+    --button-text: 24px; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    position: fixed;
+    z-index: 1;
+}
+
+.page__shoppingcart {
+    position: relative;
+    background-color: var(--clay);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.shoppingcart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Fira Sans';
+    color: var(--text-white);
+    text-align: center;
+    font-size: var(--page-heading);
+    font-weight: 700;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.30);
+    line-height: normal;
+    margin-top: 6rem;
+}
+
+.total-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    width: 358px;
+    padding: 10px;
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+}
+
+.total-label {
+    color: #333;
+}
+
+.total-amount {
+    color: #000000;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 1rem;
+}
+
+.order__button {
+    display: flex;
+    font-family: 'Fira Sans';
+    color: var(--text-white);
+    font-size: var(--button-text);
+    text-decoration: none;
+    width: 358px;
+    height: 60px;
+    padding: 24px 16px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    outline: none;
+}
+
+.order__button:active {
+    box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+.order__button--primary {
+    background-color: var(--coal);
+}
