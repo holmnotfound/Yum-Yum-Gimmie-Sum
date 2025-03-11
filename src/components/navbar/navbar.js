@@ -1,3 +1,5 @@
+import { setUpShoppingCart } from "../shoppingCart/shoppingCart.js";
+
 
 function showSidebar() {
     const sidebar = document.querySelector('.nav__list--sidebar');
@@ -24,5 +26,10 @@ export function closeSidebar() {
     })
 }
 
+export function kundkorg(){
+    const navbar = document.querySelector('#kundkorg');
+    navbar.appendChild(setUpShoppingCart());
+}
+
 //Dessa två functions ska till script.main
-closeSidebar(); clickHam();
+closeSidebar(); clickHam(); kundkorg();

@@ -1,3 +1,6 @@
+import { closeSidebar, clickHam} from "../../components/navbar/navbar.js";
+closeSidebar(), clickHam();
+
 document.addEventListener("DOMContentLoaded", function() {
     addEventListeners(); 
 });
