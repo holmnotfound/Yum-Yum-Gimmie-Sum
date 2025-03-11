@@ -1,4 +1,4 @@
-import { userShoppingCart } from "./shoppingCartStorage.js";
+// import { userShoppingCart } from "./shoppingCartStorage.js";
 
 export const setUpShoppingCart = (shoppingCart) => {
     const shoppingCartContainer = document.createElement('section');

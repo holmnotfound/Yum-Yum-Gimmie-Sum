@@ -26,6 +26,7 @@ body {
 }
 
 h1 {
+    padding-bottom: 1rem;
     color: #ffffff;
 }
 
@@ -40,7 +41,8 @@ h1 {
 }
 
 .logo {
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     height:120px;
     width:100px;
 }
@@ -109,10 +111,13 @@ input[type="submit"] {
 
 
 .login-btn {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     background-color: var(--coal);
 }
 
 .register-btn {
+    margin-bottom: 40px;
     background-color: var(--leaf-green);
     opacity: 0.76;
 }
