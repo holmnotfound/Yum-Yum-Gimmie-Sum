@@ -1,4 +1,4 @@
-import { clickHam, closeSidebar, kundkorg } from "../../components/navbar/navbar.js";
+import { displayETA } from "../../utils/randomNumber.js";
 
 // Funktionerna nedan laddar ett ordernummer varje gång sidan laddas om, sparar ordernumret och ser till att det är unikt
 const usedOrderNumbers = new Set();
@@ -16,6 +16,7 @@ function generateOrderNumber() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    displayETA();
     const orderNumberElement = document.getElementById("ordernumber");
     if (orderNumberElement) {
         orderNumberElement.textContent = "#" + generateOrderNumber();
