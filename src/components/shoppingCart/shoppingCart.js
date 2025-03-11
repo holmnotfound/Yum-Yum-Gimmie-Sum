@@ -5,7 +5,7 @@ export const setUpShoppingCart = (shoppingCart) => {
     shoppingCartContainer.classList.add('shopping-cart__container');
     
     const shoppingCartImg = document.createElement('img');
-    shoppingCartImg.src = './images/shopping-cart-white.svg';
+    shoppingCartImg.src = '../../../images/shopping-cart-white.svg';
     shoppingCartImg.classList.add('shopping-cart__img')
     shoppingCartContainer.appendChild(shoppingCartImg)
 
@@ -15,10 +15,10 @@ export const setUpShoppingCart = (shoppingCart) => {
     shoppingCartList.setAttribute('aria-hidden', 'true');
     shoppingCartContainer.appendChild(shoppingCartList);
     
-    shoppingCart.forEach((item) => {
+    /* shoppingCart.forEach((item) => {
         const menuItemElement = createShoppingCartHTML(item);
         shoppingCartList.innerHTML += `${menuItemElement}`
-    })
+    }) */
 
     return shoppingCartContainer;
 }

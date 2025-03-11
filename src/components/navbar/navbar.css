@@ -7,8 +7,12 @@ body{
     min-height: 100vh;
 }
 
+.header{
+    width: 100%;
+}
+
 .nav{
-    background-color: red;
+    
     font-family: 'Fira Sans';
     margin: 16px;
 }
