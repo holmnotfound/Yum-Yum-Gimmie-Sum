@@ -27,9 +27,7 @@ export const setUpShoppingCart = () => {
 export const renderShoppingCart = (shoppingCart) => {
     const shoppingCartList = document.querySelector('.shopping-cart__list');
     shoppingCartList.replaceChildren()
-    
-    console.log('Rendering cart')
-    
+        
     if (shoppingCart.length === 0) {
         const emptyCartElement = createEmptyShoppingCartHtml();
         shoppingCartList.innerHTML += `${emptyCartElement}`
@@ -74,6 +72,9 @@ const createShoppingCartNavHTML = () => {
     return `
         <li class="shopping-cart__nav">
             <h2 class="total-amount">Total: ${total} SEK</h2>
+            <button class="shopping-cart__nav--button">
+                TILL KASSAN
+            </button>
         </li>
     `
 }
