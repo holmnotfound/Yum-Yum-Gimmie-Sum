@@ -12,6 +12,9 @@ function generateOrderNumber() {
     } while (usedOrderNumbers.has(orderNumber)); // Se till att det är unikt
 
     usedOrderNumbers.add(orderNumber); // Sparar ordernumret
+
+    localStorage.setItem("orderNumber", orderNumber);
+
     return orderNumber;
 }
 
