@@ -11,33 +11,39 @@ const toggleShoppingCart = () => {
     const shoppingCartImg =  document.querySelector('.shopping-cart__img')
     const shoppingCartList = document.querySelector('.shopping-cart__list');
     
-    shoppingCartImg.addEventListener('click', () => {
-        renderShoppingCart(activeUser.getShoppingCart())
-
-        shoppingCartList.classList.toggle('toggle-cart')
-        shoppingCartImg.classList.toggle('spin-cart')
-        
-        shoppingCartList.getAttribute('aria-hidden') === 'true' ?
-        shoppingCartList.setAttribute('aria-hidden', 'false') :
-        shoppingCartList.setAttribute('aria-hidden', 'true')
-    })
+    if (shoppingCartImg && shoppingCartList) {
+        shoppingCartImg.addEventListener('click', () => {
+            renderShoppingCart(activeUser.getShoppingCart())
+    
+            shoppingCartList.classList.toggle('toggle-cart')
+            shoppingCartImg.classList.toggle('spin-cart')
+            
+            shoppingCartList.getAttribute('aria-hidden') === 'true' ?
+            shoppingCartList.setAttribute('aria-hidden', 'false') :
+            shoppingCartList.setAttribute('aria-hidden', 'true')
+        })
+    }
 }
 
 const changeProductAmount = () => {
     const shoppingCartList = document.querySelector('.shopping-cart__list');
     
-    shoppingCartList.addEventListener('click', (e) => {
-        const itemID = e.target.closest('li').getAttribute('data-id')
-
-        if (e.target.classList.contains('arrow-increment')) {
-            activeUser.addItemToShoppingCart(itemID)
-            renderShoppingCart(activeUser.getShoppingCart())
-        }
-        
-        if (e.target.classList.contains('arrow-decrement')) {
-            activeUser.removeItemFromCart(itemID)
-            renderShoppingCart(activeUser.getShoppingCart())
-        }
-    })
+    if (shoppingCartList) {
+        shoppingCartList.addEventListener('click', (e) => {
+            const itemID = e.target.closest('li').getAttribute('data-id')
+    
+            if (itemID) {
+                if (e.target.classList.contains('arrow-increment')) {
+                    activeUser.addItemToShoppingCart(itemID)
+                    renderShoppingCart(activeUser.getShoppingCart())
+                }
+                
+                if (e.target.classList.contains('arrow-decrement')) {
+                    activeUser.removeItemFromCart(itemID)
+                    renderShoppingCart(activeUser.getShoppingCart())
+                }
+            }
+        })
+    }
 }
 
