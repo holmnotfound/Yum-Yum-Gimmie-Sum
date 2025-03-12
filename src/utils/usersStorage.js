@@ -8,7 +8,6 @@ export const storeUsers = {
         if(user) {
             this.localUsers.push(user);
             this.saveUsers();
-            console.log(this.localUsers)
         }
     },
 

@@ -17,7 +17,6 @@ export function buildMenu(menu) {
         }
 
     })  
-    console.log('hejsan')
 }
 
 function buildWonton(wonton) {
