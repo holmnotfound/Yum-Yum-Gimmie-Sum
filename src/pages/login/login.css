@@ -41,7 +41,7 @@ h1 {
 }
 
 .logo {
-    margin-top: 30px;
+    margin: 2em auto;
     margin-bottom: 30px;
     height:120px;
     width:100px;
