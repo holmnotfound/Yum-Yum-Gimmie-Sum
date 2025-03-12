@@ -1,7 +1,7 @@
 import { calculateTotal } from "../../utils/calculateTotal.js";
-import { activeUser } from "../../../main.js";
+import { activeUserStorage } from "../../utils/usersStorage.js";
 
-calculateTotal
+
 
 export const setUpShoppingCart = () => {
     const shoppingCartContainer = document.createElement('section');
@@ -68,6 +68,8 @@ const createShoppingCartHTML = (item) => {
 }
 
 const createShoppingCartNavHTML = () => {
+    const activeUser = activeUserStorage.getActiveUser();
+
     let total = calculateTotal(activeUser.getShoppingCart())
     return `
         <li class="shopping-cart__nav">

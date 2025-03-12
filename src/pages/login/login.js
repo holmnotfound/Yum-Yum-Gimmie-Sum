@@ -1,18 +1,13 @@
-import { storeUsers } from "../../../src/utils/usersStorage.js";
+import { activeUserStorage, storeUsers } from "../../../src/utils/usersStorage.js";
+import { ActiveCustomer } from "../../utils/createUsers.js";
 
-//testar och loggar activeUser
-getActiveUser();
 
 //ser till att validateForm byter sida till menu korrekt
-if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
+/* if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
     buildMenu(menuNew)
     console.log(menuNew);  
-}
-
-document.addEventListener("DOMContentLoaded", function() {
+} */
     addEventListeners(); 
-});
-
 
 //loggar vilka users som finns
 const users = storeUsers.getUsersInfo();
@@ -21,14 +16,17 @@ console.log(users);
 
 function addEventListeners() {
     const submitBtn = document.querySelector(".login-btn"); 
-    submitBtn.addEventListener('click', validateForm);
-
+    if (submitBtn) {
+        submitBtn.addEventListener('click', validateForm);
+    }
 
     const registerBtn = document.querySelector(".register-btn");
-    registerBtn.addEventListener('click', Event => {
-        alert('Byter sida till registreringssidan')
-        window.location.href="./pages/register.html"
-    });  
+    if (registerBtn) {
+        registerBtn.addEventListener('click', Event => {
+            alert('Byter sida till registreringssidan')
+            window.location.href="./pages/register.html"
+        });  
+    }
 }
 
 // validerar form genom find, söker efter rätt user och kollar mail & lösen.
@@ -36,7 +34,7 @@ function addEventListeners() {
 // om inloggningen misslyckas - alert
 function validateForm() {
 
-
+console.log('hej')
     let email = document.getElementById("email").value;  
     let password = document.getElementById("password").value;  
 
@@ -46,8 +44,8 @@ function validateForm() {
 
     if (user) {
         alert(`${user.username} är inloggad`);
-        setActiveUser(user);
-        getActiveUser();
+        const activeCustomer = new ActiveCustomer(user.username, user.password, user.role, user.email, user.profile_image, user.shoppingCart)
+        activeUserStorage.addUserToStorage(activeCustomer)
         
         window.location.href = "../../../src/pages/menu/menu.html";
         
@@ -56,12 +54,3 @@ function validateForm() {
     }
 }
 
-function setActiveUser(user){
-        localStorage.setItem("activeUser", JSON.stringify(user));
-}
-
-export function getActiveUser(){
-        let activeUser = localStorage.getItem("activeUser");
-        console.log(activeUser);
-        return activeUser;
-}

@@ -1,5 +1,5 @@
-import { activeUser } from "../../../main.js";
 import { renderShoppingCart } from "../../../src/components/shoppingCart/shoppingCart.js";
+import { activeUserStorage } from "../../utils/usersStorage.js";
 
 export const setUpShoppingCartEventListeners = () => {
     toggleShoppingCart();
@@ -13,7 +13,8 @@ const toggleShoppingCart = () => {
     
     if (shoppingCartImg && shoppingCartList) {
         shoppingCartImg.addEventListener('click', () => {
-            renderShoppingCart(activeUser.getShoppingCart())
+            const activeCustomer = activeUserStorage.getActiveUser()
+            renderShoppingCart(activeCustomer.getShoppingCart())
     
             shoppingCartList.classList.toggle('toggle-cart')
             shoppingCartImg.classList.toggle('spin-cart')
@@ -31,16 +32,16 @@ const changeProductAmount = () => {
     if (shoppingCartList) {
         shoppingCartList.addEventListener('click', (e) => {
             const itemID = e.target.closest('li').getAttribute('data-id')
-    
+            const activeCustomer = activeUserStorage.getActiveUser()
             if (itemID) {
                 if (e.target.classList.contains('arrow-increment')) {
-                    activeUser.addItemToShoppingCart(itemID)
-                    renderShoppingCart(activeUser.getShoppingCart())
+                    activeCustomer.addItemToShoppingCart(itemID)
+                    renderShoppingCart(activeCustomer.getShoppingCart())
                 }
                 
                 if (e.target.classList.contains('arrow-decrement')) {
-                    activeUser.removeItemFromCart(itemID)
-                    renderShoppingCart(activeUser.getShoppingCart())
+                    activeCustomer.removeItemFromCart(itemID)
+                    renderShoppingCart(activeCustomer.getShoppingCart())
                 }
             }
         })

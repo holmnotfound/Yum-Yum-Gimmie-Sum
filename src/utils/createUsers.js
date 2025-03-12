@@ -1,5 +1,5 @@
 import { menuNew } from "../storage/data.js";
-import { storeUsers } from "./usersStorage.js";
+import { activeUserStorage, storeUsers } from "./usersStorage.js";
 
 class User {
     constructor(username, password, role, email, profile_image) {
@@ -75,6 +75,28 @@ export class Customer extends User {
     getOrderHistoryEvent() {
         return [...this.orderHistory]
     } 
+}
+
+export class ActiveCustomer extends Customer {
+    constructor(username, password, role, email, profile_image, shoppingCart) {
+        super(username, password, role, email, profile_image);    
+        this.shoppingCart = shoppingCart;
+    }
+
+    addItemToShoppingCart(itemID) {
+        const itemToBeAdded = menuNew.items.find(item => item.id === Number(itemID));
+        
+        const itemExists = this.shoppingCart.find(item => itemToBeAdded.id === item.id)
+        
+        if (itemExists) {
+            itemExists.quantity++;
+        }
+        else {
+            this.shoppingCart.push({...itemToBeAdded, quantity: 1});
+        }
+        activeUserStorage.localActiveCustomer = this;
+        activeUserStorage.saveUsers();
+    }
 }
 
 export class Admin extends User {
