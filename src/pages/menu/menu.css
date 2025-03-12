@@ -14,6 +14,11 @@ body {
     flex-direction: column;
 }
 
+h3 {
+    font-size: var(--menu-item-title);
+    text-transform: uppercase;
+}
+
 .menu {
     display: flex;
     flex-direction: column;
@@ -24,9 +29,8 @@ body {
 .menu__heading {
     color: var(--text-white);
     background-color: var(--menu);
-    padding-left: 1em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    font-size: 1.2em;
+    padding: 1.4em 1em 1.4em 1em;
 }
 
 .menu__wontons {
@@ -35,12 +39,11 @@ body {
 }
 
 .menu__wonton {
-    padding-left: 1em;
-    padding-right: 1em;
     background-color: var(--menu);
     color: var(--text-white);
     border-top: 1px dotted;
     cursor: pointer;
+    padding: 1em;
 }
 
 .menu__wonton:hover {
@@ -52,15 +55,9 @@ body {
     justify-content: space-between;
 }
 
-.menu__wonton-name h3 {
-    font-size: var(--menu-item-title);
-    text-transform: uppercase;
-    margin-bottom: 0.5em;
-}
-
 .menu__wonton-detail p {
     font-size: var(--menu-item-description);
-    margin-top: 0em;
+    margin-top: 0.4em;
 }
 
 .menu__dips,
@@ -80,16 +77,8 @@ body {
     justify-content: space-between;
     color: var(--text-white);
     background-color: var(--menu);
-    padding-left: 1em;
-    padding-right: 1em;
-    border-top: 1px dotted var(--text-white); 
-}
-
-.menu__dips-price h3,
-.menu__drinks-price h3 {
-    font-size: var(--menu-item-title);
-    margin-bottom: 0.5em;
-    
+    border-top: 1px dotted var(--text-white);
+    padding: 1em; 
 }
 
 .menu__dips-dip,
@@ -97,9 +86,8 @@ body {
     background-color: var(--menulight);
     color: var(--text-white);
     border-radius: 0.3em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
     cursor: pointer;
+    padding: 0.5em;
 }
 
 .menu__dips-dip:hover,
