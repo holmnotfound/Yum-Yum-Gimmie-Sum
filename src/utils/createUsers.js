@@ -97,6 +97,22 @@ export class ActiveCustomer extends Customer {
         activeUserStorage.localActiveCustomer = this;
         activeUserStorage.saveUsers();
     }
+
+    removeItemFromCart(itemID) {
+        const itemToBeRemoved = this.shoppingCart.find(item => item.id === Number(itemID));
+
+        if (itemToBeRemoved.quantity > 1) {
+            itemToBeRemoved.quantity--;
+            activeUserStorage.saveUsers();   
+        }
+        else {
+            const index = this.shoppingCart.findIndex(item => item.id === Number(itemID));
+            this.shoppingCart.splice(index, 1);
+            activeUserStorage.localActiveCustomer = this;
+            activeUserStorage.saveUsers();   
+        }
+
+    }
 }
 
 export class Admin extends User {
