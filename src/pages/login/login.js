@@ -1,34 +1,29 @@
-import { closeSidebar, clickHam} from "../../components/navbar/navbar.js";
-closeSidebar(), clickHam();
+import { storeUsers } from "../../../src/utils/usersStorage.js";
+
+//testar och loggar activeUser
+getActiveUser();
+
+//ser till att validateForm byter sida till menu korrekt
+if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
+    buildMenu(menuNew)
+    console.log(menuNew);  
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     addEventListeners(); 
 });
 
-// funktion som hämtar användarens, anropar funktion som hämtar testdata, loopar och jämför mail och lösenord
-async function validateForm(){
-    let email = document.getElementById("email").value;  
-    let password = document.getElementById("password").value;  
 
-    let userList = await fetchTestdata();
+//loggar vilka users som finns
+const users = storeUsers.getUsersInfo();
+console.log(users);
 
-    let userFound = false;
-        userList.forEach(user => {
-            if (email === user.email && password === user.password) {
-                userFound = true;
-                alert("Välkommen till appen");
-                window.location.href=":/pages/menu.html"
-            }
-        });
-
-        if (!userFound) {
-            alert("Fel e-post/lösenord");
-        }
-}
 
 function addEventListeners() {
     const submitBtn = document.querySelector(".login-btn"); 
     submitBtn.addEventListener('click', validateForm);
+
+
     const registerBtn = document.querySelector(".register-btn");
     registerBtn.addEventListener('click', Event => {
         alert('Byter sida till registreringssidan')
@@ -36,19 +31,37 @@ function addEventListeners() {
     });  
 }
 
-async function fetchTestdata(){
-    try{
-        const response = await fetch('https://santosnr6.github.io/Data/yumyumusers.json'); 
-        if(!response.ok) {
-            throw new Error(`HTTP ERROR! Status: ${response.status}`);
-        }
+// validerar form genom find, söker efter rätt user och kollar mail & lösen.
+// vid lyckad inloggning - sätter user som activeUser och byter sida till menu
+// om inloggningen misslyckas - alert
+function validateForm() {
 
-        const data = await response.json();  
-        console.log(data); 
-        return data.users; 
 
-        } catch (error){
-        alert("Error fetching users:", error);
-        return [];
+    let email = document.getElementById("email").value;  
+    let password = document.getElementById("password").value;  
+
+    let userList = storeUsers.getUsersInfo();
+    
+    let user = userList.find(user => user.email === email && user.password === password);
+
+    if (user) {
+        alert(`${user.username} är inloggad`);
+        setActiveUser(user);
+        getActiveUser();
+        
+        window.location.href = "../../../src/pages/menu/menu.html";
+        
+    } else {
+        alert("Fel e-post/lösenord");
     }
+}
+
+function setActiveUser(user){
+        localStorage.setItem("activeUser", JSON.stringify(user));
+}
+
+export function getActiveUser(){
+        let activeUser = localStorage.getItem("activeUser");
+        console.log(activeUser);
+        return activeUser;
 }

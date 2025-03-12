@@ -30,11 +30,13 @@ const changeProductAmount = () => {
         const itemID = e.target.closest('li').getAttribute('data-id')
 
         if (e.target.classList.contains('arrow-increment')) {
-            console.log(`increment id: ${itemID}`)
+            activeUser.addItemToShoppingCart(itemID)
+            renderShoppingCart(activeUser.getShoppingCart())
         }
         
         if (e.target.classList.contains('arrow-decrement')) {
-            console.log(`decrement id: ${itemID}`)
+            activeUser.removeItemFromCart(itemID)
+            renderShoppingCart(activeUser.getShoppingCart())
         }
     })
 }

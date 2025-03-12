@@ -22,6 +22,8 @@ activeUser.addItemToShoppingCart(menuNew.items[1].id)
 activeUser.addItemToShoppingCart(menuNew.items[13].id)
 activeUser.addItemToShoppingCart(menuNew.items[16].id)
 activeUser.addItemToShoppingCart(menuNew.items[16].id)
+activeUser.addItemToShoppingCart(menuNew.items[6].id)
+
 
 
 
