@@ -11,7 +11,7 @@ function generateOrderNumber() {
         orderNumber = Array.from({ length: 11 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
     } while (usedOrderNumbers.has(orderNumber)); // Se till att det är unikt
 
-    usedOrderNumbers.add(orderNumber); //Sparar ordernumret
+    usedOrderNumbers.add(orderNumber); // Sparar ordernumret
     return orderNumber;
 }
 
