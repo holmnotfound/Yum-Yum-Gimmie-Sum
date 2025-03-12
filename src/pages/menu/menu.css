@@ -94,3 +94,31 @@ h3 {
 .menu__drinks-drink:hover {
     background-color: var(--coal);
 }
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: var(--menulight);
+    color: var(--text-light-grey);
+    padding: 0.9em;
+}
+
+.footer__contact,
+.footer__follow {
+    width: 130px;
+}
+
+.footer p {
+    font-size: 0.9em;
+}
+
+.footer__follow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.footer__follow img {
+    width: 1.5em;
+}
