@@ -10,7 +10,7 @@ body {
     align-items: center;
 }
 
-h1 {
+.orderconfirmation-wrapper h1 {
     font-size: var(--page-heading);
     font-family: 'Fira Sans';
     color: var(--text-white);
@@ -21,7 +21,7 @@ h1 {
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.30);
 }
 
-h2 {
+.orderconfirmation-wrapper h2 {
     font-size: var(--page-heading);
     font-family: 'Fira Sans';
     color: var(--text-white);
@@ -33,7 +33,7 @@ h2 {
     margin-bottom: 1rem;
 }
 
-h3 {
+.orderconfirmation-wrapper h3 {
     font-size: 26px;
     font-family: 'Fira Sans';
     color: var(--text-white);
@@ -45,7 +45,7 @@ h3 {
     margin-bottom: 1.5rem;
 }
 
-p {
+.orderconfirmation-wrapper p {
     font-size: 15px;
     font-family: 'Fira Sans';
     color: var(--text-white);
