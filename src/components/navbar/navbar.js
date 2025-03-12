@@ -13,22 +13,29 @@ function hideSidebar() {
 
 export function clickHam() {
     const hamburger = document.querySelector('#hamburger');
-    hamburger.addEventListener('click', () => {
-        console.log('hello')
-        showSidebar();
-    })
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            console.log('hello')
+            showSidebar();
+        })
+    }
 }
 
 export function closeSidebar() {
     const xClose = document.querySelector('#x-solid');
-    xClose.addEventListener('click', () => {
-        hideSidebar();
-    })
+    if (xClose) {
+        xClose.addEventListener('click', () => {
+            hideSidebar();
+        })
+    }
 }
 
 export function kundkorg(){
     const navbar = document.querySelector('#kundkorg');
-    navbar.appendChild(setUpShoppingCart());
+
+    if (navbar) {
+        navbar.appendChild(setUpShoppingCart());
+    }
 }
 
 //Dessa två functions ska till script.main
