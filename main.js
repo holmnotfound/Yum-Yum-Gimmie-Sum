@@ -24,7 +24,7 @@ activeUser.addItemToShoppingCart(menuNew.items[16].id)
 activeUser.addItemToShoppingCart(menuNew.items[16].id)
 activeUser.addItemToShoppingCart(menuNew.items[6].id)
 
-
+console.log('MAIN KÖRS')
 
 
 
