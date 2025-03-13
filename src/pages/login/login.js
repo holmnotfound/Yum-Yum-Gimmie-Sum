@@ -1,5 +1,6 @@
 import { activeUserStorage, storeUsers } from "../../../src/utils/usersStorage.js";
-import { ActiveCustomer } from "../../utils/createUsers.js";
+import { menuNew } from "../../storage/data.js";
+import { ActiveCustomer, Customer } from "../../utils/createUsers.js";
 
 
 //ser till att validateForm byter sida till menu korrekt
@@ -7,6 +8,7 @@ import { ActiveCustomer } from "../../utils/createUsers.js";
     buildMenu(menuNew)
     console.log(menuNew);  
 } */
+
     addEventListeners(); 
 
 //loggar vilka users som finns

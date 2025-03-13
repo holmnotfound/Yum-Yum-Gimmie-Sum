@@ -8,25 +8,29 @@ import { setUpShoppingCart, renderShoppingCart } from "./src/components/shopping
 import { setUpShoppingCartEventListeners } from "./src/components/shoppingCart/eventListeners.js";
 import { clickHam, closeSidebar, kundkorg } from "./src/components/navbar/navbar.js";
 
+
+if (!window.location.pathname.includes('/src/pages/menu/menu.html')) {
+    console.log('Detta körs')
+        storeUsers.clearUsersStorage();
+        const rasmus = new Customer('Rasmus', 'x', 'Customer', 'x', 'google')
+        storeUsers.addUserToStorage(rasmus)
+        const Calle = new Customer('Calle', '1', 'Customer', '1', 'google')
+        storeUsers.addUserToStorage(Calle)
+        
+        Calle.addItemToShoppingCart(menuNew.items[0].id)
+        Calle.addItemToShoppingCart(menuNew.items[1].id)
+        rasmus.addItemToShoppingCart(menuNew.items[0].id)
+        rasmus.addItemToShoppingCart(menuNew.items[1].id)
+        rasmus.addItemToShoppingCart(menuNew.items[13].id)
+        rasmus.addItemToShoppingCart(menuNew.items[16].id)
+        rasmus.addItemToShoppingCart(menuNew.items[16].id)
+        rasmus.addItemToShoppingCart(menuNew.items[6].id)
+}
+
 if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
     buildMenu(menuNew)
 }
 
-console.log('Main körs')
-storeUsers.clearUsersStorage();
-const rasmus = new Customer('Rasmus', 'x', 'Customer', 'x', 'google')
-storeUsers.addUserToStorage(rasmus)
-const Calle = new Customer('Calle', '1', 'Customer', '1', 'google')
-storeUsers.addUserToStorage(Calle)
-
-Calle.addItemToShoppingCart(menuNew.items[0].id)
-Calle.addItemToShoppingCart(menuNew.items[1].id)
-rasmus.addItemToShoppingCart(menuNew.items[0].id)
-rasmus.addItemToShoppingCart(menuNew.items[1].id)
-rasmus.addItemToShoppingCart(menuNew.items[13].id)
-rasmus.addItemToShoppingCart(menuNew.items[16].id)
-rasmus.addItemToShoppingCart(menuNew.items[16].id)
-rasmus.addItemToShoppingCart(menuNew.items[6].id)
 
 setUpShoppingCartEventListeners();
 

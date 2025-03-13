@@ -26,7 +26,8 @@ export const storeUsers = {
     },
 
     getUsersInfo: function () {
-        return JSON.parse(localStorage.getItem('Users')) || [];    
+        this.localUsers = JSON.parse(localStorage.getItem('Users')) || [];    
+        return this.localUsers;    
     },
 
     saveUsers: function() {
@@ -34,11 +35,10 @@ export const storeUsers = {
     },
 
     updateUser: function(user) {
-        this.localUsers.indexOf((targetUser) => {
-            if (targetUser.username === user.username) {
-                this.localUsers.replace(this.usersStorage.indexOf(userFound), user);
-            }
-        })
+        this.localUsers = this.localUsers.map(targetUser => 
+            targetUser.username === user.username ? user : targetUser
+        );
+        this.saveUsers();
     }
 }
 
@@ -70,7 +70,6 @@ export const activeUserStorage = {
             profile_image: this.localActiveCustomer.profile_image,
             shoppingCart: this.localActiveCustomer.shoppingCart
         }));
-        storeUsers.updateUser(this.localActiveCustomer);
     },
 
     getActiveUser: function() {
