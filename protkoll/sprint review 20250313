@@ -1,9 +1,11 @@
 Mötesprotokoll (13 Mars)
 Närvarande
 
-* Person 1 (ersätt med namn)
-* Person 2
-* Person 3 osv...
+* Carl Wirén
+* Emilia Holmqvist
+* Rasmus Frolov
+* Daniel Fredriksson
 
 Protokoll
-Sammanfatta vad ni presenterat, vilka kommentarer PO hade osv.
+Vi har presenterat en MVP där ett köpesflöde från inloggningen till orderkvitto presenteras.
+Kunden är nöjd med funktionalitet. Önskar att designen testas på potentiella kunder. Kunden önskar även att en carousel introduceras med bilder. Kunden kommer med ett exempel om att denna t.ex hade kunnat vara i About us pagen. 
