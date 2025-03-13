@@ -57,9 +57,9 @@ function buildDip(dip) {
         </div>
     `
     setTimeout(() => {
-        let newWonton = document.getElementById(dip.itemId);
-        if (newWonton) {
-            newWonton.addEventListener("click", () => handleMenuItemClick(dip.id));
+        let newDip = document.getElementById(dip.id);
+        if (newDip) {
+            newDip.addEventListener("click", () => handleMenuItemClick(dip.id));
         }
     }, 0);
 }
@@ -74,9 +74,9 @@ function buildDrink(drink) {
         </div>
     `
     setTimeout(() => {
-        let newWonton = document.getElementById(drink.id);
-        if (newWonton) {
-            newWonton.addEventListener("click", () => handleMenuItemClick(drink.id));
+        let newDrink = document.getElementById(drink.id);
+        if (newDrink) {
+            newDrink.addEventListener("click", () => handleMenuItemClick(drink.id));
         }
     }, 0);
 }
