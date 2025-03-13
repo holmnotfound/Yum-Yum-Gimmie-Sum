@@ -12,12 +12,15 @@ if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
     buildMenu(menuNew)
 }
 
+console.log('Main körs')
 storeUsers.clearUsersStorage();
 const rasmus = new Customer('Rasmus', 'x', 'Customer', 'x', 'google')
 storeUsers.addUserToStorage(rasmus)
+const Calle = new Customer('Calle', '1', 'Customer', '1', 'google')
+storeUsers.addUserToStorage(Calle)
 
-rasmus.addItemToShoppingCart(menuNew.items[0].id)
-rasmus.addItemToShoppingCart(menuNew.items[1].id)
+Calle.addItemToShoppingCart(menuNew.items[0].id)
+Calle.addItemToShoppingCart(menuNew.items[1].id)
 rasmus.addItemToShoppingCart(menuNew.items[0].id)
 rasmus.addItemToShoppingCart(menuNew.items[1].id)
 rasmus.addItemToShoppingCart(menuNew.items[13].id)

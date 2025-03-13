@@ -61,10 +61,6 @@ export const activeUserStorage = {
     },
 
     saveUsers: function() {
-        if (!this.localActiveCustomer) {
-            console.warn("No active customer to save!");
-            return;
-        }
     
         localStorage.setItem('activeCustomer', JSON.stringify({
             username: this.localActiveCustomer.username,
@@ -74,6 +70,7 @@ export const activeUserStorage = {
             profile_image: this.localActiveCustomer.profile_image,
             shoppingCart: this.localActiveCustomer.shoppingCart
         }));
+        storeUsers.updateUser(this.localActiveCustomer);
     },
 
     getActiveUser: function() {
