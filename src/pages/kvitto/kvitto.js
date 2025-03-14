@@ -48,7 +48,7 @@ menuBtn();
         });
 
         
-        totalSumElement.textContent = `${totalSum.toFixed(2)} SEK`;
+        totalSumElement.textContent = `${totalSum} SEK`;
     }
 
     renderReceipt();
