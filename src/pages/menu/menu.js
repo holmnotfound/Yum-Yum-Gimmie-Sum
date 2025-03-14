@@ -1,5 +1,5 @@
 import { closeSidebar, clickHam} from "../../components/navbar/navbar.js";
-import { activeUser } from "../../../main.js";
+import { activeUserStorage } from "../../utils/usersStorage.js";
 
 closeSidebar(), clickHam();
 
@@ -83,7 +83,7 @@ function buildDrink(drink) {
 
 function handleMenuItemClick(itemId) {
     console.log('clicked');
-    activeUser.addItemToShoppingCart(itemId)
-    console.log(activeUser.getShoppingCart());
+    const activeCustomer = activeUserStorage.getActiveUser();
+    activeCustomer.addItemToShoppingCart(itemId)
 }
 

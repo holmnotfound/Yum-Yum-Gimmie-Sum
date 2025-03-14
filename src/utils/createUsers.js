@@ -1,5 +1,5 @@
 import { menuNew } from "../storage/data.js";
-import { storeUsers } from "./usersStorage.js";
+import { activeUserStorage, storeUsers } from "./usersStorage.js";
 
 class User {
     constructor(username, password, role, email, profile_image) {
@@ -60,9 +60,56 @@ export class Customer extends User {
             this.shoppingCart.splice(index, 1);
             storeUsers.saveUsers();    
         }
-
     }
+}
+
+export class ActiveCustomer extends Customer {
+    constructor(username, password, role, email, profile_image, shoppingCart) {
+        super(username, password, role, email, profile_image);    
+        this.shoppingCart = shoppingCart;
+    }
+
+    addItemToShoppingCart(itemID) {
+        const itemToBeAdded = menuNew.items.find(item => item.id === Number(itemID));
+        
+        const itemExists = this.shoppingCart.find(item => itemToBeAdded.id === item.id)
+        
+        if (itemExists) {
+            itemExists.quantity++;
+        }
+        else {
+            this.shoppingCart.push({...itemToBeAdded, quantity: 1});
+        }
+        activeUserStorage.localActiveCustomer = this;
+        activeUserStorage.saveUsers();
+        this.updateUserInUsers();
+    }
+
+    removeItemFromCart(itemID) {
+        const itemToBeRemoved = this.shoppingCart.find(item => item.id === Number(itemID));
     
+        if (itemToBeRemoved.quantity > 1) {
+            itemToBeRemoved.quantity--;
+        } else {
+            const index = this.shoppingCart.findIndex(item => item.id === Number(itemID));
+            this.shoppingCart.splice(index, 1);
+        }
+    
+        activeUserStorage.localActiveCustomer = this;
+        activeUserStorage.saveUsers();
+        this.updateUserInUsers();
+    }
+
+    updateUserInUsers() {
+        const users = storeUsers.getUsersInfo();
+        const userIndex = users.findIndex(user => user.username === this.username);
+    
+        if (userIndex !== -1) {
+            users[userIndex].shoppingCart = [...this.shoppingCart];  
+            storeUsers.saveUsers();
+        }
+    }
+
     getShoppingCart() {
         return [...this.shoppingCart];
     }

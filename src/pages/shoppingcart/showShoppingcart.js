@@ -1,7 +1,8 @@
 import { createShoppingCartHTML } from '../../components/shoppingCart/shoppingCart.js';
+import { activeUserStorage } from '../../utils/usersStorage.js';
 
-const activeUser = JSON.parse(localStorage.getItem('activeUser'));
-const shoppingCart = activeUser ? activeUser.shoppingCart : [];
+const activeCustomer = activeUserStorage.getActiveUser();
+const shoppingCart = activeCustomer ? activeCustomer.getShoppingCart() : [];
 
 console.log('Shopping Cart:', shoppingCart);
 
