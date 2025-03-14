@@ -6,7 +6,7 @@ body {
     background-image: url('../../../images/background-leaf-250307.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -23,7 +23,7 @@ h3 {
     display: flex;
     flex-direction: column;
     width: 90%;
-    margin: 4em auto;
+    margin: 2em auto;
 }
 
 .menu__heading {
@@ -93,4 +93,32 @@ h3 {
 .menu__dips-dip:hover,
 .menu__drinks-drink:hover {
     background-color: var(--coal);
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: var(--menulight);
+    color: var(--text-light-grey);
+    padding: 0.9em;
+}
+
+.footer__contact,
+.footer__follow {
+    width: 130px;
+}
+
+.footer p {
+    font-size: 0.9em;
+}
+
+.footer__follow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.footer__follow img {
+    width: 1.5em;
 }

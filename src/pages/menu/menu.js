@@ -1,4 +1,6 @@
 import { closeSidebar, clickHam} from "../../components/navbar/navbar.js";
+import { activeUser } from "../../../main.js";
+
 closeSidebar(), clickHam();
 
 export function buildMenu(menu) {
@@ -34,7 +36,16 @@ function buildWonton(wonton) {
             </div>
         </div>
     `
+    
+    setTimeout(() => {
+        let newWonton = document.getElementById(wonton.id);
+        if (newWonton) {
+            newWonton.addEventListener("click", () => handleMenuItemClick(wonton.id));
+        }
+    }, 0);
+    
 }
+
 
 function buildDip(dip) {
     let menuDipsRef = document.querySelector(".menu__dips")
@@ -45,6 +56,12 @@ function buildDip(dip) {
                 <p>${dip.name}</p>
         </div>
     `
+    setTimeout(() => {
+        let newWonton = document.getElementById(dip.itemId);
+        if (newWonton) {
+            newWonton.addEventListener("click", () => handleMenuItemClick(dip.id));
+        }
+    }, 0);
 }
 
 function buildDrink(drink) {
@@ -56,4 +73,17 @@ function buildDrink(drink) {
                 <p>${drink.name}</p>
         </div>
     `
+    setTimeout(() => {
+        let newWonton = document.getElementById(drink.id);
+        if (newWonton) {
+            newWonton.addEventListener("click", () => handleMenuItemClick(drink.id));
+        }
+    }, 0);
 }
+
+function handleMenuItemClick(itemId) {
+    console.log('clicked');
+    activeUser.addItemToShoppingCart(itemId)
+    console.log(activeUser.getShoppingCart());
+}
+

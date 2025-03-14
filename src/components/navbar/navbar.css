@@ -3,9 +3,9 @@
     padding: 0;
 }
 
-body{
+/* body{
     min-height: 100vh;
-}
+} */
 
 .header{
     width: 100%;
@@ -39,11 +39,12 @@ body{
     justify-content: flex-end;
     align-items: flex-end;
     width: 100%;
-    padding-top: 10px;
+    margin-top: 10px;
     border: none;
 }
 
 .nav__list-element#last-list-item{
+    margin-top: 15px;
     border: none;
 }
 

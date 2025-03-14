@@ -41,7 +41,7 @@ h1 {
 }
 
 .logo {
-    margin-top: 30px;
+    margin: 2em auto;
     margin-bottom: 30px;
     height:120px;
     width:100px;
@@ -62,10 +62,9 @@ h1 {
 
 
 .login-form__buttons button{
-    
     color: var(--text-white);
     font-family: 'Fira Sans', sans-serif;
-    font-size: var(--dropdown-menu-item);
+    font-size: 24px;
     padding: 10px 50px;
     border: none;
     border-radius: 5px;

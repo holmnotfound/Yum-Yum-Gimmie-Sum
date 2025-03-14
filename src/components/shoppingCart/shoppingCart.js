@@ -39,9 +39,16 @@ export const renderShoppingCart = (shoppingCart) => {
         })
     }
     shoppingCartList.innerHTML += createShoppingCartNavHTML();
+
+    const checkoutButton = document.querySelector(".shopping-cart__nav--button");
+    if (checkoutButton) {
+        checkoutButton.addEventListener("click", () => {
+            window.location.href = "../../../src/pages/shoppingcart/shoppingcart.html";
+        });
+    }
 }
 
-const createShoppingCartHTML = (item) => {
+export const createShoppingCartHTML = (item) => {
     const{id, type, name, description, price, quantity} = item; 
 
     return `
