@@ -25,8 +25,7 @@ function addEventListeners() {
     const registerBtn = document.querySelector(".register-btn");
     if (registerBtn) {
         registerBtn.addEventListener('click', Event => {
-            alert('Byter sida till registreringssidan')
-            window.location.href="./pages/register.html"
+            window.location.href="../../../src/pages/register/register.html"
         });  
     }
 }
