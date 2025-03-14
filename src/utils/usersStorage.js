@@ -13,8 +13,8 @@ export const storeUsers = {
     },
 
     removeUserFromStorage: function(user) {
-    let userFound = this.localUsers.find((user) => {
-        return user.id === id;
+    let userFound = this.localUsers.find((targetUser) => {
+        return user.id === targetUser.id;
     })
     this.localUsers.splice(this.usersStorage.indexOf(userFound), 1);
     this.saveUsers()

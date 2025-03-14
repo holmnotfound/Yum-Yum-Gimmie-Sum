@@ -105,7 +105,7 @@ export class ActiveCustomer extends Customer {
         const userIndex = users.findIndex(user => user.username === this.username);
     
         if (userIndex !== -1) {
-            users[userIndex].shoppingCart = [...this.shoppingCart];  // Uppdatera shoppingCart
+            users[userIndex].shoppingCart = [...this.shoppingCart];  
             storeUsers.saveUsers();
         }
     }
