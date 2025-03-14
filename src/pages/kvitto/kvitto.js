@@ -1,4 +1,6 @@
 import { closeSidebar, clickHam } from "../../components/navbar/navbar.js";
+import { activeUserStorage } from "../../utils/usersStorage.js";
+
 closeSidebar(), clickHam();
 
 function menuBtn() {
@@ -12,7 +14,7 @@ menuBtn();
 
 
     function renderReceipt() {
-        let currentUser = JSON.parse(localStorage.getItem("activeUser"));
+        let activeCustomer = activeUserStorage.getActiveUser();
         let orderNumber = localStorage.getItem("orderNumber");
 
         let contentContainer = document.querySelector('.kvitto__content');
@@ -26,7 +28,7 @@ menuBtn();
 
         let totalSum = 0;
 
-        currentUser.shoppingCart.forEach(item => {
+        activeCustomer.shoppingCart.forEach(item => {
             
             let textContent = `
             <div class="kvitto__row">
@@ -46,7 +48,7 @@ menuBtn();
         });
 
         
-        totalSumElement.textContent = `${totalSum} SEK`;
+        totalSumElement.textContent = `${totalSum.toFixed(2)} SEK`;
     }
 
     renderReceipt();
