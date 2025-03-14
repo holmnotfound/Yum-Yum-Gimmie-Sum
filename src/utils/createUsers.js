@@ -82,6 +82,7 @@ export class ActiveCustomer extends Customer {
         }
         activeUserStorage.localActiveCustomer = this;
         activeUserStorage.saveUsers();
+        this.updateUserInUsers();
     }
 
     removeItemFromCart(itemID) {
@@ -96,7 +97,6 @@ export class ActiveCustomer extends Customer {
     
         activeUserStorage.localActiveCustomer = this;
         activeUserStorage.saveUsers();
-    
         this.updateUserInUsers();
     }
 
