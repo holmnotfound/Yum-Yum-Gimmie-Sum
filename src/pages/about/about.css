@@ -12,7 +12,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    
 }
 
 h3 {
@@ -29,6 +29,7 @@ p {
     flex-direction: column;
     width: 90%;
     margin: 2em auto;
+    flex-grow: 1;
     
 }
 
@@ -36,6 +37,7 @@ p {
 .about__contact {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: var(--menu);
     width: 100%;
     padding: 1em;
@@ -86,7 +88,10 @@ p {
 
 .footer {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    bottom: 0;
+    left: 0;
     width: 100%;
     background-color: var(--menulight);
     color: var(--text-light-grey);
@@ -95,7 +100,15 @@ p {
 
 .footer__contact,
 .footer__follow {
-    width: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer__contact {
+    justify-content: space-around;
+    margin-top: 0.5em;
 }
 
 .footer p {
@@ -104,8 +117,7 @@ p {
 
 .footer__follow {
     display: flex;
-    flex-direction: column;
-    gap: 0.5em;
+    gap: 1em;
 }
 
 .footer__follow img {
