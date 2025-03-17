@@ -5,6 +5,6 @@ export function randomTimer(){
 export function displayETA() {
     const etaText = document.getElementById("eta-time");
     if (etaText) {
-        etaText.textContent = `ETA ${randomTimer()} MIN`
+        etaText.textContent = `LEVERANSTID: ${randomTimer()} MIN`
     }
 }
