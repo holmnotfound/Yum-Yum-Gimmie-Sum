@@ -5,9 +5,16 @@ closeSidebar(), clickHam();
 
 function menuBtn() {
     const menuBtn = document.querySelector(".ny-beställning-btn");
-    menuBtn.addEventListener('click', () => {
-        window.location.href = "../menu/menu.html"
-    })
+    const navigateToMenu = () => {
+        window.location.href = "../menu/menu.html";
+    };
+    
+    menuBtn.addEventListener('click', navigateToMenu);
+    menuBtn.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            navigateToMenu();
+        }
+    });
 }
 
 menuBtn();
