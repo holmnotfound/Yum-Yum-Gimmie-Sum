@@ -24,6 +24,7 @@ const toggleShoppingCart = () => {
             shoppingCartList.setAttribute('aria-hidden', 'true')
         })
     }
+
 }
 
 const changeProductAmount = () => {

@@ -42,6 +42,14 @@ function buildWonton(wonton) {
         let newWonton = document.getElementById(wonton.id);
         if (newWonton) {
             newWonton.addEventListener("click", () => handleMenuItemClick(wonton.id));
+
+            newWonton.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    handleMenuItemClick(wonton.id);
+                }
+            });
+        
+            newWonton.setAttribute("tabindex", "0");
         }
     }, 0);
     
@@ -61,6 +69,13 @@ function buildDip(dip) {
         let newDip = document.getElementById(dip.id);
         if (newDip) {
             newDip.addEventListener("click", () => handleMenuItemClick(dip.id));
+            newDip.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    handleMenuItemClick(dip.id);
+                }
+            });
+        
+            newDip.setAttribute("tabindex", "0");
         }
     }, 0);
 }
@@ -78,6 +93,14 @@ function buildDrink(drink) {
         let newDrink = document.getElementById(drink.id);
         if (newDrink) {
             newDrink.addEventListener("click", () => handleMenuItemClick(drink.id));
+
+            newDrink.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    handleMenuItemClick(drink.id);
+                }
+            });
+        
+            newDrink.setAttribute("tabindex", "0");
         }
     }, 0);
 }

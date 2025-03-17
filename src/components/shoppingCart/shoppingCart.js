@@ -6,9 +6,12 @@ import { activeUserStorage } from "../../utils/usersStorage.js";
 export const setUpShoppingCart = () => {
     const shoppingCartContainer = document.createElement('section');
     shoppingCartContainer.classList.add('shopping-cart__container');
+
+    shoppingCartContainer.setAttribute('tabindex', '0');
     
     const shoppingCartImg = document.createElement('img');
     shoppingCartImg.src = '../../../images/shopping-cart-white.svg';
+    shoppingCartImg.alt = 'knapp för att öppna kundkorgen'
     shoppingCartImg.classList.add('shopping-cart__img')
     shoppingCartContainer.appendChild(shoppingCartImg)
 
@@ -54,11 +57,11 @@ export const createShoppingCartHTML = (item) => {
     return `
         <li class="shopping-cart__list-item" data-id=${id}>
             <section class="shopping-cart__navigation">
-                <a class="shopping-cart__decrement-product">
+                <a class="shopping-cart__decrement-product" tabindex="1">
                     <img class="arrow arrow-decrement" src="../../../images/arrow-decrement.svg" alt="Remove ${name} from your order"/>
                 </a>
                 <span class="number-of-products">${quantity}</span>
-                <a class="shopping-cart__increment-product">
+                <a class="shopping-cart__increment-product" tabindex="2">
                     <img class="arrow arrow-increment" src="../../../images/arrow-increment.svg" alt="Add another ${name} to your order"/>
                 </a>
             </section>
