@@ -22,9 +22,10 @@ if (shoppingCart.length > 0) {
 }
 
 const totalAmount = shoppingCart.reduce((total, item) => total + item.price, 0);
+let totalAmountMoms = totalAmount * 1.25;
 const totalAmountElement = document.querySelector('.total-amount-checkout');
 if (totalAmountElement) {
-    totalAmountElement.textContent = `${totalAmount} kr`;
+    totalAmountElement.textContent = `${totalAmountMoms} kr`;
 }
 
 const orderButton = document.querySelector('.order__button--primary');

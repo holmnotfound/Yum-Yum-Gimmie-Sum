@@ -51,7 +51,7 @@ menuBtn();
 
             contentContainer.innerHTML += textContent;
 
-            totalSum += item.price * item.quantity * 1.2;
+            totalSum += item.price * item.quantity * 1.25;
         });
 
         
