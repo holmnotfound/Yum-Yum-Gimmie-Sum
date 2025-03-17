@@ -112,3 +112,38 @@ function handleMenuItemClick(itemId) {
     renderShoppingCart(activeCustomer.getShoppingCart())
 }
 
+export function filterMenu() {
+    let toggleWontonsRef = document.querySelector("#toggleWontons")
+    toggleWontonsRef.addEventListener('change', function() {
+        if(toggleWontonsRef.checked) {
+            document.querySelector(".menu__wontons").classList.remove("d-none")
+        } else {
+            document.querySelector(".menu__wontons").classList.add("d-none");    
+        }
+    })
+
+    let toggleDipsRef = document.querySelector("#toggleDips")
+    toggleDipsRef.addEventListener('change', function() {
+        if(toggleDipsRef.checked) {
+            document.querySelector(".menu__dips").classList.remove("d-none")
+            document.querySelector(".menu__dips-price").classList.remove("d-none")
+        } else {
+            document.querySelector(".menu__dips").classList.add("d-none")
+            document.querySelector(".menu__dips-price").classList.add("d-none")  
+        }
+    })
+
+    let toggleDrinksRef = document.querySelector("#toggleDrinks")
+    toggleDrinksRef.addEventListener('change', function() {
+        if(toggleDrinksRef.checked) {
+            document.querySelector(".menu__drinks").classList.remove("d-none")
+            document.querySelector(".menu__drinks-price").classList.remove("d-none")
+        } else {
+            document.querySelector(".menu__drinks").classList.add("d-none")
+            document.querySelector(".menu__drinks-price").classList.add("d-none")  
+        }
+    })
+
+}
+
+
