@@ -6,6 +6,7 @@ export const storeUsers = {
     localUsers: [],
 
     addUserToStorage: function(user) {
+        console.log(user)
         if(user) {
             this.localUsers.push(user);
             this.saveUsers();
