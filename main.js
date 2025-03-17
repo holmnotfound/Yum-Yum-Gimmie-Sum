@@ -1,5 +1,5 @@
 import { fetchMenu } from "./src/api/api.js";
-import { buildMenu } from "./src/pages/menu/menu.js";
+import { buildMenu, filterMenu } from "./src/pages/menu/menu.js";
 import { menuNew } from "./src/storage/data.js"
 import { Customer } from "./src/utils/createUsers.js"
 import { storeUsers } from "./src/utils/usersStorage.js";
@@ -11,6 +11,7 @@ import { clickHam, closeSidebar, kundkorg } from "./src/components/navbar/navbar
 
 if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
     buildMenu(menuNew)
+    filterMenu()
 }
 
 
