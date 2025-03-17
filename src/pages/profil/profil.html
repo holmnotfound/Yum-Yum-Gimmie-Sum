@@ -34,29 +34,30 @@
         <span class="username"></span>
     </section>
     <div class="user-form">
-        <form action="/action_page.php" method="POST">
+        <form type="submit"  id="user-form">
             <label for="profile-pic-input">Profile picture:</label>
-            <input type="profile-pic" id="profile-pic-input" name="profile-pic" required>
+            <input type="profile-pic" id="profile-pic-input">
             <span class="profile-pic-link"></span>
 
             <label for="email-input">E-post:</label>
             <section class="email-section">
-                <input type="email" id="email-input" name="email" placeholder="ex. carl123@123.se" required>
+                <input type="email" id="email-input" name="email" placeholder="ex. carl123@123.se">
                 <span class="email"></span>
                 <button type="button" class="info-button" id="change-email-button">Ändra e-post</button>
             </section>
-            <label for="password-input-old">Lösenord:</label>
+            <label for="password-input-new">Lösenord:</label>
             <section class="password-section">
-                <input type="password" id="password-input-new" name="password-new" required>
+                <input type="password" id="password-input-new" name="password-new" minlength="5" maxlength="15" placeholder="Mellan 5-10 tecken">
                 <span class="password"></span>
                 <button type="button" class="info-button" id="change-password-button">Ändra lösenord</button>
             </section>
+            <button id="save-changes">SPARA ÄNDRINGAR</button>
         </form>
     </div>
     
-    <div class="login-form__buttons">
-        <button type="button" class="login-btn">SPARA ÄNDRINGAR </button>
-    </div>
+<!--     <div class="login-form__buttons">
+        <button type="submit" class="login-btn" id="save-changes">SPARA ÄNDRINGAR </button>
+    </div> -->
     <script src="profil.js" type="module"></script>
     <script type="module" src="../../components/navbar/navbar.js"></script>    
 </body>

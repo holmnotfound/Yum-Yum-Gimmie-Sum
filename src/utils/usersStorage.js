@@ -36,9 +36,11 @@ export const storeUsers = {
     },
 
     updateUser: function(user) {
+        console.log(user);
         this.localUsers = this.localUsers.map(targetUser => 
             targetUser.username === user.username ? user : targetUser
         );
+        console.log(this.localUsers)
         this.saveUsers();
     }
 }

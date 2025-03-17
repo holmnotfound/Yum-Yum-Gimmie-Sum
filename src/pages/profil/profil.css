@@ -37,8 +37,6 @@ h1 {
     text-align: left;
     padding: 20px;  
     width: 320px;
-    height: 300px;
-
 }
 
 .profile-pic {
@@ -96,6 +94,17 @@ h1 {
     width: 8em;
 }
 
+#save-changes {
+    background-color: var(--coal);
+    color: var(--text-white);
+    font-size: var(--menu-item-title);
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 5px; 
+    margin-top: 1em;
+}
+
 .login-form__buttons{
     display: flex;
     flex-direction: column;
@@ -122,8 +131,7 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    
+    gap: 15px;
 }
 
 label {

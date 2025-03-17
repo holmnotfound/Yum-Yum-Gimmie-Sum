@@ -1,5 +1,4 @@
-import { activeUserStorage } from "../../utils/usersStorage.js"
-
+import { activeUserStorage, storeUsers } from "../../utils/usersStorage.js"
 
 const setUpUserProfile = () => {
     const activeUser = activeUserStorage.getActiveUser()
@@ -9,6 +8,7 @@ const setUpUserProfile = () => {
     setUpUserPassword(activeUser.password);
     setUpChangeEmailButton();
     setUpChangePasswordButton();
+    setUpSaveChangesButton(activeUser);
 }
 
 
@@ -60,5 +60,48 @@ const setUpChangePasswordButton = () => {
         passwordElement.classList.toggle('hide-element')
     })
 }
+
+const setUpSaveChangesButton = (activeUser) => {
+    const form = document.querySelector('#user-form');
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const passwordNew = formData.get('password-new')
+        const emailNew = formData.get('email')
+        
+        if (passwordNew !== null) {
+            if (validateNewPassword(passwordNew)) {
+                activeUser.password = passwordNew;
+                activeUserStorage.saveUsers();
+                storeUsers.updateUser(activeUser);
+                resetForm()
+            }
+        }
+
+        if (emailNew !== null) {
+            if (validateNewEmail(emailNew)) {
+                activeUser.email = emailNew;
+                activeUserStorage.saveUsers();
+            }            
+        }
+    })
+}
+
+const validateNewEmail = (newEmail) => {
+    const email = newEmail.trim();
+    return email.length > 5 && email.includes('@', '.');
+}
+
+const validateNewPassword = (newPassword) => {
+    const password = newPassword.trim();
+    return password.length >= 5 && password.length <= 15;
+}
+
+const resetForm = () => {
+    const passwordInputNew = document.querySelector('#password-input-new');
+    const passwordElement = document.querySelector('.password');
+}
+
 
 setUpUserProfile();

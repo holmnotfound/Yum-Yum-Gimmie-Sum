@@ -12,7 +12,7 @@ const toggleShoppingCart = () => {
     const shoppingCartList = document.querySelector('.shopping-cart__list');
     
     if (shoppingCartImg && shoppingCartList) {
-        shoppingCartImg.addEventListener('click', () => {
+        shoppingCartImg.addEventListener('keydown', (e) => {
             const activeCustomer = activeUserStorage.getActiveUser()
             renderShoppingCart(activeCustomer.getShoppingCart())
     
@@ -22,6 +22,7 @@ const toggleShoppingCart = () => {
             shoppingCartList.getAttribute('aria-hidden') === 'true' ?
             shoppingCartList.setAttribute('aria-hidden', 'false') :
             shoppingCartList.setAttribute('aria-hidden', 'true')
+            console.log(e.currentTarget)
         })
     }
 }
