@@ -17,18 +17,33 @@ if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
 setUpShoppingCartEventListeners();
 
 /* ska detta ligga här?? */
+
 function menuBtn() {
-    const menuBtn = document.querySelector(".landing__button");
-   menuBtn.addEventListener('click', () => {
-    window.location.href = "/src/pages/menu/menu.html"
-   })
+    const menuBtn = document.querySelector(".landing__button--primary");
+    const navigateToMenu = () => {
+        window.location.href = "/src/pages/menu/menu.html";
+    };
+    
+    menuBtn.addEventListener('click', navigateToMenu);
+    menuBtn.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            navigateToMenu();
+        }
+    });
 }
 
 function logInBtn() {
-    const login = document.querySelector(".landing__button--secondary");
-    login.addEventListener('click', () => {
-        window.location.href = "/src/pages/login/login.html"
-    })
+    const menuBtn = document.querySelector(".landing__button--secondary");
+    const navigateToMenu = () => {
+        window.location.href = "/src/pages/login/login.html";
+    };
+    
+    menuBtn.addEventListener('click', navigateToMenu);
+    menuBtn.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            navigateToMenu();
+        }
+    });
 }
 
 menuBtn()

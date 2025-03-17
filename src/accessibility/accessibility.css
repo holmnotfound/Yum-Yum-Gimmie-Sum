@@ -11,4 +11,10 @@ li:focus,
     outline-offset: 2px;
 } */
 
-/* hello*/
+.landing__button--primary:focus,
+.landing__button--secondary:focus,
+.order__button--primary:focus,
+.orderconfirmation__button:focus{
+    outline: 3px solid #1500ff;
+    outline-offset: 2px;
+}
