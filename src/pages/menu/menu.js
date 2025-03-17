@@ -26,7 +26,7 @@ function buildWonton(wonton) {
     let menuWontonRef = document.querySelector(".menu__wontons")
 
     menuWontonRef.innerHTML += ` 
-        <div class="menu__wonton" id="${wonton.id}">    
+        <div class="menu__wonton" tabindex="${wonton.id}" id="${wonton.id}">    
             <div class="menu__wonton-name">    
                     <h3>${wonton.name}</h3>
                     <h3>${wonton.price} sek</h3>
@@ -53,7 +53,7 @@ function buildDip(dip) {
     document.querySelector(".menu__dip-price").textContent = `${dip.price} sek`
 
     menuDipsRef.innerHTML += `
-        <div class="menu__dips-dip" id="${dip.id}">
+        <div class="menu__dips-dip" tabindex="${dip.id}" id="${dip.id}">
                 <p>${dip.name}</p>
         </div>
     `
@@ -70,7 +70,7 @@ function buildDrink(drink) {
     document.querySelector(".menu__drink-price").textContent = `${drink.price} sek`
 
     menuDrinksRef.innerHTML += `
-        <div class="menu__drinks-drink" id="${drink.id}">
+        <div class="menu__drinks-drink" tabindex="${drink.id}" id="${drink.id}">
                 <p>${drink.name}</p>
         </div>
     `

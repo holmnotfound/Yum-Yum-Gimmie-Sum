@@ -16,3 +16,21 @@ if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
 
 setUpShoppingCartEventListeners();
 
+/* ska detta ligga här?? */
+function menuBtn() {
+    const menuBtn = document.querySelector(".landing__button");
+   menuBtn.addEventListener('click', () => {
+    window.location.href = "/src/pages/menu/menu.html"
+   })
+}
+
+function logInBtn() {
+    const login = document.querySelector(".landing__button--secondary");
+    login.addEventListener('click', () => {
+        window.location.href = "/src/pages/login/login.html"
+    })
+}
+
+menuBtn()
+logInBtn()
+
