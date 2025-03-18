@@ -12,7 +12,6 @@
 }
 
 .nav{
-    
     font-family: 'Fira Sans';
     margin: 16px;
 }
@@ -52,12 +51,10 @@
     padding-top: 15px;
     padding-bottom: 15px;
     width: 100%;
-    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: solid 1px black;
-
 }
 
 .nav__list-content:first-child{
@@ -71,6 +68,7 @@
     display: flex;
     align-items: center;
     color: var(--coal);
+    height: 50px;
 }
 
 .nav__list--sidebar{
@@ -88,6 +86,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    gap: 0px !important;
 }
 
 .nav__list-arrrow{
