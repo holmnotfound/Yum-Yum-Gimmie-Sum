@@ -75,7 +75,7 @@ export const createShoppingCartHTML = (item) => {
                 ${name} 
             </h2>
             <h2 class="shopping-cart__menu-item--price" aria-label="${price}">
-                ${price} SEK
+                ${price * quantity} SEK
             </h2>    
             </section>
         </li>    

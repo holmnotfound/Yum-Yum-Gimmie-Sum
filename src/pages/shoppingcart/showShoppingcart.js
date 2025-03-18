@@ -1,32 +1,37 @@
+import { changeProductAmountClick } from '../../components/shoppingCart/eventListeners.js';
 import { createShoppingCartHTML } from '../../components/shoppingCart/shoppingCart.js';
 import { activeUserStorage } from '../../utils/usersStorage.js';
 
-const activeCustomer = activeUserStorage.getActiveUser();
-const shoppingCart = activeCustomer ? activeCustomer.getShoppingCart() : [];
-
-console.log('Shopping Cart:', shoppingCart);
-
 const menuItemsContainer = document.querySelector('.menu-items');
 
-if (shoppingCart.length > 0) {
-    shoppingCart.forEach((item) => {
-        item.price = item.price * item.quantity;
-    });
+function renderCart() {
+    const activeCustomer = activeUserStorage.getActiveUser();
+    const shoppingCart = activeCustomer ? activeCustomer.getShoppingCart() : [];
 
-    shoppingCart.forEach((item) => {
-        const menuItemElement = createShoppingCartHTML(item);
-        menuItemsContainer.innerHTML += menuItemElement;
-    });
-} else {
-    menuItemsContainer.textContent = "Din kundkorg är tom.";
+    if (shoppingCart.length > 0) {
+        shoppingCart.forEach((item) => {
+            const menuItemElement = createShoppingCartHTML(item);
+            menuItemsContainer.innerHTML += menuItemElement;
+        });
+    } else {
+        menuItemsContainer.textContent = "Din kundkorg är tom.";
+    }
+    
+    const totalAmount = shoppingCart.reduce((total, item) => total + item.quantity * item.price, 0);
+    let totalAmountMoms = totalAmount * 1.25;
+    const totalAmountElement = document.querySelector('.total-amount-checkout');
+    if (totalAmountElement) {
+        totalAmountElement.textContent = `${totalAmountMoms} SEK`;
+    }
 }
 
-const totalAmount = shoppingCart.reduce((total, item) => total + item.price, 0);
-let totalAmountMoms = totalAmount * 1.25;
-const totalAmountElement = document.querySelector('.total-amount-checkout');
-if (totalAmountElement) {
-    totalAmountElement.textContent = `${totalAmountMoms} kr`;
-}
+renderCart()
+
+changeProductAmountClick(menuItemsContainer);
+menuItemsContainer.addEventListener('click', (e) => {
+    menuItemsContainer.innerHTML = ''
+    renderCart()
+})
 
 const orderButton = document.querySelector('.order__button--primary');
 orderButton.addEventListener('click', () => {
