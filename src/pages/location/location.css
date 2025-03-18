@@ -136,3 +136,9 @@ gmp-map {
 .footer__follow img {
   width: 1.5em;
 }
+
+.location-text{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
