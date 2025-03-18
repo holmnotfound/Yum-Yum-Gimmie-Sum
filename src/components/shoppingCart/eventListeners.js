@@ -2,12 +2,16 @@ import { renderShoppingCart } from "../../../src/components/shoppingCart/shoppin
 import { activeUserStorage } from "../../utils/usersStorage.js";
 
 export const setUpShoppingCartEventListeners = () => {
-    toggleShoppingCartClick();
-    changeProductAmount()
+    if (!document.querySelector('.shopping-cart__container')) {
+        return;
+    }
 
-    const parentContainer = document.getElementsByClassName('shopping-cart__container')[0]
+    toggleShoppingCartClick();
+    changeProductAmount();
+
+    const parentContainer = document.querySelector('.shopping-cart__container');
     changeProductAmountClick(parentContainer);
-}
+};
 
 function toggleShoppingCart(event) {
     const shoppingCartImg = document.querySelector('.shopping-cart__img');
