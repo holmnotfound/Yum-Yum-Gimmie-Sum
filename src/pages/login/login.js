@@ -1,6 +1,10 @@
 import { activeUserStorage, storeUsers } from "../../../src/utils/usersStorage.js";
 import { menuNew } from "../../storage/data.js";
 import { ActiveCustomer, Customer } from "../../utils/createUsers.js";
+import { setUpShoppingCartEventListeners } from "../../components/shoppingCart/eventListeners.js";
+import { kundkorg } from "../../components/navbar/navbar.js";
+
+
 
 
 //ser till att validateForm byter sida till menu korrekt
@@ -8,7 +12,8 @@ import { ActiveCustomer, Customer } from "../../utils/createUsers.js";
     buildMenu(menuNew)
     console.log(menuNew);  
 } */
-
+    /* kundkorg(); */
+    setUpShoppingCartEventListeners();
     addEventListeners(); 
 
 //loggar vilka users som finns
