@@ -36,11 +36,13 @@ export const storeUsers = {
     },
 
     updateUser: function(user) {
+        this.getUsersInfo();  // Ensure the localUsers array is populated
+
         console.log(user);
         this.localUsers = this.localUsers.map(targetUser => 
             targetUser.username === user.username ? user : targetUser
         );
-        console.log(this.localUsers)
+        console.log(this.localUsers);
         this.saveUsers();
     }
 }

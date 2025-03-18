@@ -75,7 +75,6 @@ const setUpSaveChangesButton = (activeUser) => {
                 activeUser.password = passwordNew;
                 activeUserStorage.saveUsers();
                 storeUsers.updateUser(activeUser);
-                resetForm()
             }
         }
 
@@ -83,6 +82,7 @@ const setUpSaveChangesButton = (activeUser) => {
             if (validateNewEmail(emailNew)) {
                 activeUser.email = emailNew;
                 activeUserStorage.saveUsers();
+                storeUsers.updateUser(activeUser);
             }            
         }
     })
