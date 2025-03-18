@@ -9,6 +9,8 @@ export const setUpShoppingCart = () => {
     
     const shoppingCartImg = document.createElement('img');
     shoppingCartImg.src = '../../../images/shopping-cart-white.svg';
+    shoppingCartImg.alt = 'knapp för att öppna kundkorgen'
+    shoppingCartImg.setAttribute('tabindex', '0');
     shoppingCartImg.classList.add('shopping-cart__img')
     shoppingCartContainer.appendChild(shoppingCartImg)
 
@@ -46,6 +48,12 @@ export const renderShoppingCart = (shoppingCart) => {
             window.location.href = "../../../src/pages/shoppingcart/shoppingcart.html";
         });
     }
+    if (checkoutButton) {
+        checkoutButton.addEventListener("keydown", (event) => {
+            if(event.key === 'Enter' || event.key === ' ')
+            window.location.href = "../../../src/pages/shoppingcart/shoppingcart.html";
+        });
+    }
 }
 
 export const createShoppingCartHTML = (item) => {
@@ -55,11 +63,11 @@ export const createShoppingCartHTML = (item) => {
         <li class="shopping-cart__list-item" data-id=${id}>
             <section class="shopping-cart__navigation">
                 <a class="shopping-cart__decrement-product">
-                    <img class="arrow arrow-decrement" src="../../../images/arrow-decrement.svg" alt="Remove ${name} from your order"/>
+                    <img class="arrow arrow-decrement" src="../../../images/arrow-decrement.svg" alt="Remove ${name} from your order" tabindex="0"/>
                 </a>
                 <span class="number-of-products">${quantity}</span>
                 <a class="shopping-cart__increment-product">
-                    <img class="arrow arrow-increment" src="../../../images/arrow-increment.svg" alt="Add another ${name} to your order"/>
+                    <img class="arrow arrow-increment" src="../../../images/arrow-increment.svg" alt="Add another ${name} to your order" tabindex="0"/>
                 </a>
             </section>
             <section class="shopping-cart__products">

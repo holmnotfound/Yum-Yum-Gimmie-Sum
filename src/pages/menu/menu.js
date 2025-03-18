@@ -26,7 +26,7 @@ function buildWonton(wonton) {
     let menuWontonRef = document.querySelector(".menu__wontons")
 
     menuWontonRef.innerHTML += ` 
-        <div class="menu__wonton" id="${wonton.id}">    
+        <div class="menu__wonton" tabindex="${wonton.id}" id="${wonton.id}">    
             <div class="menu__wonton-name">    
                     <h3>${wonton.name}</h3>
                     <h3>${wonton.price} sek</h3>
@@ -42,6 +42,14 @@ function buildWonton(wonton) {
         let newWonton = document.getElementById(wonton.id);
         if (newWonton) {
             newWonton.addEventListener("click", () => handleMenuItemClick(wonton.id));
+
+            newWonton.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    handleMenuItemClick(wonton.id);
+                }
+            });
+        
+            newWonton.setAttribute("tabindex", "0");
         }
     }, 0);
     
@@ -53,7 +61,7 @@ function buildDip(dip) {
     document.querySelector(".menu__dip-price").textContent = `${dip.price} sek`
 
     menuDipsRef.innerHTML += `
-        <div class="menu__dips-dip" id="${dip.id}">
+        <div class="menu__dips-dip" tabindex="${dip.id}" id="${dip.id}">
                 <p>${dip.name}</p>
         </div>
     `
@@ -61,6 +69,13 @@ function buildDip(dip) {
         let newDip = document.getElementById(dip.id);
         if (newDip) {
             newDip.addEventListener("click", () => handleMenuItemClick(dip.id));
+            newDip.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    handleMenuItemClick(dip.id);
+                }
+            });
+        
+            newDip.setAttribute("tabindex", "0");
         }
     }, 0);
 }
@@ -70,7 +85,7 @@ function buildDrink(drink) {
     document.querySelector(".menu__drink-price").textContent = `${drink.price} sek`
 
     menuDrinksRef.innerHTML += `
-        <div class="menu__drinks-drink" id="${drink.id}">
+        <div class="menu__drinks-drink" tabindex="${drink.id}" id="${drink.id}">
                 <p>${drink.name}</p>
         </div>
     `
@@ -78,6 +93,14 @@ function buildDrink(drink) {
         let newDrink = document.getElementById(drink.id);
         if (newDrink) {
             newDrink.addEventListener("click", () => handleMenuItemClick(drink.id));
+
+            newDrink.addEventListener("keydown", (event) => {
+                if (event.key === "Enter") {
+                    handleMenuItemClick(drink.id);
+                }
+            });
+        
+            newDrink.setAttribute("tabindex", "0");
         }
     }, 0);
 }
@@ -88,4 +111,39 @@ function handleMenuItemClick(itemId) {
     activeCustomer.addItemToShoppingCart(itemId)
     renderShoppingCart(activeCustomer.getShoppingCart())
 }
+
+export function filterMenu() {
+    let toggleWontonsRef = document.querySelector("#toggleWontons")
+    toggleWontonsRef.addEventListener('change', function() {
+        if(toggleWontonsRef.checked) {
+            document.querySelector(".menu__wontons").classList.remove("d-none")
+        } else {
+            document.querySelector(".menu__wontons").classList.add("d-none");    
+        }
+    })
+
+    let toggleDipsRef = document.querySelector("#toggleDips")
+    toggleDipsRef.addEventListener('change', function() {
+        if(toggleDipsRef.checked) {
+            document.querySelector(".menu__dips").classList.remove("d-none")
+            document.querySelector(".menu__dips-price").classList.remove("d-none")
+        } else {
+            document.querySelector(".menu__dips").classList.add("d-none")
+            document.querySelector(".menu__dips-price").classList.add("d-none")  
+        }
+    })
+
+    let toggleDrinksRef = document.querySelector("#toggleDrinks")
+    toggleDrinksRef.addEventListener('change', function() {
+        if(toggleDrinksRef.checked) {
+            document.querySelector(".menu__drinks").classList.remove("d-none")
+            document.querySelector(".menu__drinks-price").classList.remove("d-none")
+        } else {
+            document.querySelector(".menu__drinks").classList.add("d-none")
+            document.querySelector(".menu__drinks-price").classList.add("d-none")  
+        }
+    })
+
+}
+
 

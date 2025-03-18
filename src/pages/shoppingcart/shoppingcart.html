@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="shoppingcart.css">
     <link rel="stylesheet" href="../../components/shoppingCart/shoppingCart.css">
     <link rel="stylesheet" href="../../../src/components/navbar/navbar.css">
+    <link rel="stylesheet" href="/src/accessibility/accessibility.css">
     <script type="module" src="../../../main.js"></script>
     <script type="module" src="showShoppingcart.js"></script>
     <title>Kundkorg</title>
@@ -17,14 +18,15 @@
     <header class="header">
         <nav class="nav">
             <ul class="nav__list--sidebar">
-                <li class="nav__list-element" id="x-solid"><a class="nav__list-link" href="#"><img class="nav__list-close" src="../../../images/x-solid.svg" alt="en knapp för att stänga ner hamburgar menyn"></a></li>
+                <li class="nav__list-element" id="x-solid"><a class="nav__list-link" href="/index.html"><img class="nav__list-close" src="../../../images/x-solid.svg" alt="en knapp för att stänga ner hamburgar menyn"></a></li>
                 <li class="nav__list-element"><a class="nav__list-link" href="../../../src/pages/menu/menu.html">MENY</a> <img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
                 <li class="nav__list-element"><a class="nav__list-link" href="../../../src/pages/shoppingcart/shoppingcart.html">BESTÄLLNING</a><img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
                 <li class="nav__list-element"><a class="nav__list-link" href="../../../src/pages/about/about.html">OM OSS</a><img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
+                <li class="nav__list-element"><a class="nav__list-link" href="../../../src/pages/location/location.html">HITTA OSS</a><img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
                 <li class="nav__list-element" id="last-list-item" ><a class="nav__list-link" href="../../../src/pages/login/login.html">LOGGA IN / REGISTRERA DIG</a><img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
             </ul>
             <ul class="nav__list">
-                <li class="nav__list-content"><a class="nav__list-link" href="#"><img class="nav__list-logo" src="../../../images/logo-white.png" alt="yum yum gimme sum logo in white"></a></li>
+                <li class="nav__list-content"><a class="nav__list-link" href="../../../index.html"><img class="nav__list-logo" src="../../../images/logo-white.png" alt="yum yum gimme sum logo in white"></a></li>
                 <li class="nav__list-content" id="kundkorg"></li>
                 <li class="nav__list-content" id="hamburger"><a class="nav__list-link" href="#"><img class="nav__list-hamburger" src="../../../images/hamburger-white.svg" alt="hamburgarmeny"></a></li>
             </ul>
@@ -42,7 +44,7 @@
                         <span class="total-label">TOTALT:</span>
                         <span class="total-amount-checkout" id="total-amount-checkout">0 kr</span>
                     </div>
-                    <button class="order__button order__button--primary">TAKE MY MONEY!</button>
+                    <button class="order__button order__button--primary" id="order" tabindex="1">TAKE MY MONEY!</button>
                 </section>
             </section>
         </section>

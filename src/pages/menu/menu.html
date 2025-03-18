@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../../style.css">
     <link rel="stylesheet" href="../../../src/components/shoppingCart/shoppingCart.css">
     <link rel="stylesheet" href="../../../src/components/navbar/navbar.css">
+    <link rel="stylesheet" href="/src/accessibility/accessibility.css">
     <title>Yum Yum Gimme Sum</title>
     
 </head>
@@ -23,10 +24,11 @@
                 <li class="nav__list-element"><a class="nav__list-link" href="../../../src/pages/menu/menu.html">MENY</a> <img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
                 <li class="nav__list-element"><a class="nav__list-link" href="../../../src/pages/shoppingcart/shoppingcart.html">BESTÄLLNING</a><img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
                 <li class="nav__list-element"><a class="nav__list-link" href="../../../src/pages/about/about.html">OM OSS</a><img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
+                <li class="nav__list-element"><a class="nav__list-link" href="../../../src/pages/location/location.html">HITTA OSS</a><img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
                 <li class="nav__list-element" id="last-list-item" ><a class="nav__list-link" href="../../../src/pages/login/login.html">LOGGA IN / REGISTRERA DIG</a><img class="nav__list-arrrow" src="../../../images/arrow-increment.svg" alt=""></li>
             </ul>
             <ul class="nav__list">
-                <li class="nav__list-content"><a class="nav__list-link" href="#"><img class="nav__list-logo" src="../../../images/logo-white.png" alt="yum yum gimme sum logo in white"></a></li>
+                <li class="nav__list-content"><a class="nav__list-link" href="../../../index.html"><img class="nav__list-logo" src="../../../images/logo-white.png" alt="yum yum gimme sum logo in white"></a></li>
                 <li class="nav__list-content" id="kundkorg"></li>
                 <li class="nav__list-content" id="hamburger"><a class="nav__list-link" href="#"><img class="nav__list-hamburger" src="../../../images/hamburger-white.svg" alt="hamburgarmeny"></a></li>
             </ul>
@@ -35,6 +37,9 @@
     <section class="menu">
         <div class="menu__heading">
             <h1>MENY</h1>
+            <label><input type="checkbox" id="toggleWontons" checked> Mat</label>
+            <label><input type="checkbox" id="toggleDips" checked> Dip</label>
+            <label><input type="checkbox" id="toggleDrinks" checked> Dryck</label>
         </div>
         <div class="menu__wontons">
         </div>

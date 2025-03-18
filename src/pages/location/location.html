@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../components/shoppingCart/shoppingCart.css">
-    <link rel="stylesheet" href="orderhistory.css">
+    <link rel="stylesheet" href="location.css">
     <link rel="stylesheet" href="../../../style.css">
-    <link rel="stylesheet" href="../../../src/components/navbar/navbar.css">
-
+    <link rel="stylesheet" href="../../components/shoppingCart/shoppingCart.css">
+    <link rel="stylesheet" href="../../components/navbar/navbar.css">
     <script type="module" src="../../../main.js"></script>
-    <script type="module" src="../../../src/pages/orderhistory/orderhistory.js"></script>
-    <title>Yum Yum Gimme Sum</title>
-</head>
+    <script type="module" src="location.js"></script>
+    <title>Location</title>
+    <script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQZzX0qPJ8ZWTpcP19P0ry9gbREFXjTMg&libraries=marker&v=beta">
+</script>
+
 
 <body>
     <header class="header">
@@ -35,46 +36,68 @@
             </ul>
         </nav>
     </header>
-    <h1 class="orderhistorik__heading">ORDERHISTORIK</h1>
-    <main class="main">
-        <!-- <section class="kvitto">
-            <section class="kvitto__header">
-                <img class="kvitto__logga" src="../../../images/logo-red.png" alt="yum yum gimme sum logga i rött">
-                <h1 class="kvitto__title">KVITTO</h1>
-                <p class="kvitto__order-nummer">Order nr: #4kjwsdf234k</p>
-                <p class="kvitto__order-nummer">Order datum: 250312</p>
-            </section>
-            <section class="kvitto__content">
-                <div class="kvitto__info">
-                    <p class="kvitto__content--title">KARLSTAD</p>
-                    <p class="kvitto__content--antal">3 stycken</p>
+    
+    <h1>HITTA OSS</h1>
+
+    <section class="map">
+        <div class="map-container">
+            <div class="map-box--malmo">
+                <div class="map-text">
+                    <h2>Malmö</h2>
+                    <p>Öppettider</p>
+                    <p>Vardagar: 9-17</p>
+                    <p>Helger: 10-15</p>
+                    <p>Kontakt:</p>
+                    <p>010-574 85 91</p>
                 </div>
-                <div class="kvitto__line"></div>
-                <div class="kvitto__price">
-                    <p class="kvitto__price--text">27 KR</p>
+           
+                <gmp-map id="malmo-map" center="55.59392547607422,13.00897216796875" zoom="14" map-id="DEMO_MAP_ID">
+                    <gmp-advanced-marker position="55.59392547607422,13.00897216796875" title="Malmö"></gmp-advanced-marker>
+                </gmp-map> 
+            </div>
+            <div class="map-box--goteborg">
+                <div class="map-text">
+                <h2>Göteborg</h2>
+                <p>Öppettider</p>
+                    <p>Vardagar: 9-17</p>
+                    <p>Helger: 10-15</p>
+                    <p>Kontakt:</p>
+                    <p>010-574 85 91</p>
                 </div>
-            </section>
-            <section class="kvitto__total">
-                <div class="kvitto__total--text">
-                    <p class="kvitto__total--title">TOTALT</p>
-                    <p class="kvitto__total--moms">inkl 20% moms</p>
+    
+                <gmp-map id="goteborg-map" center="57.708870,11.974560" zoom="14" map-id="DEMO_MAP_ID">
+                <gmp-advanced-marker position="57.708870,11.974560" title="Göteborg"></gmp-advanced-marker>
+                </gmp-map>
                 </div>
-                <p class="kvitto__total--summa">101 SEK</p>
-            </section>
-        </section> -->
-    </main>
+            <div class="map-box--stockholm">
+                <div class="map-text">
+                <h2>Stockholm</h2>
+                <p>Öppettider</p>
+                <p>Vardagar: 9-17</p>
+                <p>Helger: 10-15</p>
+                <p>Kontakt:</p>
+                <p>010-574 85 91</p>
+                </div>
+                <gmp-map id="stockholm-map" center="59.329323,18.068581" zoom="14" map-id="DEMO_MAP_ID">
+                <gmp-advanced-marker position="59.329323,18.068581" title="Stockholm"></gmp-advanced-marker>
+                </gmp-map>
+            </div>
+        </div>
+    </section>
     <footer class="footer">
-        <div class="footer__follow">
-            <img src="../../../images/instagram.svg" alt="instagram logo">
-            <img src="../../../images/facebook.svg" alt="facebook logo">
-            <img src="../../../images/twitter.svg" alt="twitter logo">
+        <div class="footer__contact">
+            <p>CONTACT</p>
+            <p>Tel: 123-456 789</p>
+            <p>Mail: yygs@mat.se</p>
         </div>
         <div class="footer__contact">
-            <p>Kontakt</p>
-            <p>Adress</p>
-            <p>Cookies</p>
+            <p>COOKIES</p>
+        </div>
+        <div class="footer__follow">
+            <p>FOLLOW US</p>
+            <img src="../../../images/instagram.svg" alt="instagram logo">
+            <img src="../../../images/facebook.svg" alt="instagram logo">
         </div>    
     </footer> 
 </body>
-
 </html>

@@ -23,11 +23,12 @@ body {
     height: 100vh;
     margin: 0px;
     position: relative;
+    padding: 20px;
 }
 
 h1 {
     padding-bottom: 1rem;
-    color: #ffffff;
+    align-items: center;
 }
 
 .login-form {

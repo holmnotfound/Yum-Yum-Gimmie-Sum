@@ -5,9 +5,16 @@ closeSidebar(), clickHam();
 
 function menuBtn() {
     const menuBtn = document.querySelector(".ny-beställning-btn");
-    menuBtn.addEventListener('click', () => {
-        window.location.href = "../menu/menu.html"
-    })
+    const navigateToMenu = () => {
+        window.location.href = "../menu/menu.html";
+    };
+    
+    menuBtn.addEventListener('click', navigateToMenu);
+    menuBtn.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            navigateToMenu();
+        }
+    });
 }
 
 menuBtn();
@@ -44,7 +51,7 @@ menuBtn();
 
             contentContainer.innerHTML += textContent;
 
-            totalSum += item.price * item.quantity * 1.2;
+            totalSum += item.price * item.quantity * 1.25;
         });
 
         
