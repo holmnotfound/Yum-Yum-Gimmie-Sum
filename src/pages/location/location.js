@@ -22,6 +22,24 @@ export function getLocations(city) {
     return locations[city] || [];
 }
 
+function locationPrint(city, location) {
+    const cityClassMap = {
+        "Malmö": ".map-box--malmo",
+        "Göteborg": ".map-box--goteborg",
+        "Stockholm": ".map-box--stockholm"
+    };
+
+    const citySelector = cityClassMap[city];
+
+    const locationWrap = document.querySelector(`${citySelector} .location-text`);
+
+    locationWrap.innerHTML = ""; 
+
+    let locationTitle = document.createElement('p');
+    locationTitle.textContent = `Nu är vi här: ${location.name}`;
+    locationWrap.append(locationTitle);
+}
+
 
 function randomLocation(city, mapId) {
     const locations = getLocations(city);
@@ -36,6 +54,8 @@ function randomLocation(city, mapId) {
             <gmp-advanced-marker position="${randomLocation.lat},${randomLocation.lng}" title="${randomLocation.name}"></gmp-advanced-marker>
         `;
     }
+
+    locationPrint(city, randomLocation);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
