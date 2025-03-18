@@ -7,6 +7,7 @@
     align-items: flex-end;
     max-width: 30em;
     height: 30px;
+    z-index: 200;
 }
 
 .shopping-cart__list {

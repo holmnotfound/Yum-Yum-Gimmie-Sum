@@ -18,7 +18,7 @@
 
 body {
   background-image: url("../../../images/background-leaf2.png");
-  color: var(--text-light-grey)
+  /* color: var(--text-light-grey); */
 }
 
 h1{
@@ -26,8 +26,9 @@ h1{
   color: #353131;
 }
 
-h2{
+.map-text h2{
   margin-bottom: 20px;
+  color: var(--text-light-grey);
 }
 
 
