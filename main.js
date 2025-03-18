@@ -22,7 +22,7 @@ setUpShoppingCartEventListeners();
 function menuBtn() {
     const menuBtn = document.querySelector(".landing__button--primary");
     const navigateToMenu = () => {
-        window.location.href = "/src/pages/menu/menu.html";
+        window.location.href = "src/pages/menu/menu.html";
     };
     
     menuBtn.addEventListener('click', navigateToMenu);
@@ -36,7 +36,7 @@ function menuBtn() {
 function logInBtn() {
     const menuBtn = document.querySelector(".landing__button--secondary");
     const navigateToMenu = () => {
-        window.location.href = "/src/pages/login/login.html";
+        window.location.href = "src/pages/login/login.html";
     };
     
     menuBtn.addEventListener('click', navigateToMenu);
