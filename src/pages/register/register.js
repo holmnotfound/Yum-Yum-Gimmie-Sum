@@ -25,8 +25,6 @@ form.addEventListener('submit', (e) => {
             window.location.href = "../../../src/pages/login/login.html"
         }, 2000);
     }
-
-
 })
 
 

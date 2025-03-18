@@ -7,7 +7,6 @@ export const setUpShoppingCartEventListeners = () => {
     changeProductAmountClick();
 }
 
-
 function toggleShoppingCart(event) {
     const shoppingCartImg = document.querySelector('.shopping-cart__img');
     const shoppingCartList = document.querySelector('.shopping-cart__list');
@@ -48,6 +47,7 @@ function toggleShoppingCartClick(){
             shoppingCartList.setAttribute('aria-hidden', 'false') :
             shoppingCartList.setAttribute('aria-hidden', 'true')
             console.log()
+
         })
     }
 }
