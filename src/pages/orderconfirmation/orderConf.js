@@ -5,7 +5,7 @@ const usedOrderNumbers = new Set();
 
 function generateOrderNumber() {
     let orderNumber;
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
     do {
         orderNumber = Array.from({ length: 11 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
