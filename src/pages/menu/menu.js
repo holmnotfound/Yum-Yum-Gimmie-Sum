@@ -3,7 +3,6 @@ import { activeUserStorage } from "../../utils/usersStorage.js";
 import { renderShoppingCart, quickContentShoppingCart } from "../../components/shoppingCart/shoppingCart.js";
 
 closeSidebar(), clickHam();
-quickContentShoppingCart();
 
 export function buildMenu(menu) {
     menu.items.forEach((menuItem) => {
