@@ -75,6 +75,7 @@ const setUpSaveChangesButton = (activeUser) => {
                 activeUser.password = passwordNew;
                 activeUserStorage.saveUsers();
                 storeUsers.updateUser(activeUser);
+                resetForm()
             }
         }
 
@@ -83,8 +84,10 @@ const setUpSaveChangesButton = (activeUser) => {
                 activeUser.email = emailNew;
                 activeUserStorage.saveUsers();
                 storeUsers.updateUser(activeUser);
+                resetForm()
             }            
         }
+        window.location.href = '/Yum-Yum-Gimmie-Sum/src/pages/profil/profil.html'
     })
 }
 
@@ -99,8 +102,13 @@ const validateNewPassword = (newPassword) => {
 }
 
 const resetForm = () => {
-    const passwordInputNew = document.querySelector('#password-input-new');
+    let passwordInputNew = document.querySelector('#password-input-new');
     const passwordElement = document.querySelector('.password');
+    let emailInput = document.querySelector('#email-input');
+    const userEmailElement = document.querySelector('.email')
+    
+    emailInput.value = '';
+    passwordInputNew.value = '';
 }
 
 
