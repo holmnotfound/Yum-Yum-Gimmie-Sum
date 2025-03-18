@@ -1,6 +1,6 @@
 import { closeSidebar, clickHam} from "../../components/navbar/navbar.js";
 import { activeUserStorage } from "../../utils/usersStorage.js";
-import { renderShoppingCart } from "../../components/shoppingCart/shoppingCart.js";
+import { renderShoppingCart, quickContentShoppingCart } from "../../components/shoppingCart/shoppingCart.js";
 
 closeSidebar(), clickHam();
 
@@ -110,6 +110,7 @@ function handleMenuItemClick(itemId) {
     const activeCustomer = activeUserStorage.getActiveUser();
     activeCustomer.addItemToShoppingCart(itemId)
     renderShoppingCart(activeCustomer.getShoppingCart())
+    quickContentShoppingCart()
 }
 
 export function filterMenu() {

@@ -1,4 +1,4 @@
-import { renderShoppingCart } from "../../../src/components/shoppingCart/shoppingCart.js";
+import { renderShoppingCart, quickContentShoppingCart } from "../../../src/components/shoppingCart/shoppingCart.js";
 import { activeUserStorage } from "../../utils/usersStorage.js";
 
 export const setUpShoppingCartEventListeners = () => {
@@ -84,20 +84,49 @@ const changeProductAmount = () => {
     }
 };
 
-export const changeProductAmountClick = (parentContainer) => {
-    parentContainer.addEventListener('click', (e) => {
-        const itemID = e.target.closest('li').getAttribute('data-id')
-        const activeCustomer = activeUserStorage.getActiveUser()
-        if (itemID) {
-            if (e.target.classList.contains('arrow-increment')) {
-                activeCustomer.addItemToShoppingCart(itemID)
-                renderShoppingCart(activeCustomer.getShoppingCart())
-            }
+// const changeProductAmountClick = () => {
+//     const shoppingCartList = document.querySelector('.shopping-cart__list');
+    
+//     if (shoppingCartList) {
+//         shoppingCartList.addEventListener('click', (e) => {
+//             const itemID = e.target.closest('li').getAttribute('data-id')
+//             const activeCustomer = activeUserStorage.getActiveUser()
+//             if (itemID) {
+//                 if (e.target.classList.contains('arrow-increment')) {
+//                     activeCustomer.addItemToShoppingCart(itemID)
+//                     renderShoppingCart(activeCustomer.getShoppingCart())
+//                 }
+                
+//                 if (e.target.classList.contains('arrow-decrement')) {
+//                     activeCustomer.removeItemFromCart(itemID)
+//                     renderShoppingCart(activeCustomer.getShoppingCart())
+//                 }
+//             }
+//         })
+//     }
+// }
+
+const changeProductAmountClick = () => {
+    const shoppingCartList = document.querySelector('.shopping-cart__list');
+    
+    if (shoppingCartList) {
+        shoppingCartList.addEventListener('click', (e) => {
+            const itemID = e.target.closest('li')?.getAttribute('data-id');
+            const activeCustomer = activeUserStorage.getActiveUser();
             
-            if (e.target.classList.contains('arrow-decrement')) {
-                activeCustomer.removeItemFromCart(itemID)
-                renderShoppingCart(activeCustomer.getShoppingCart())
+            if (itemID) {
+                if (e.target.classList.contains('arrow-increment')) {
+                    activeCustomer.addItemToShoppingCart(itemID);
+                    renderShoppingCart(activeCustomer.getShoppingCart());
+                    quickContentShoppingCart();
+                }
+                
+                if (e.target.classList.contains('arrow-decrement')) {
+                    activeCustomer.removeItemFromCart(itemID);
+                    renderShoppingCart(activeCustomer.getShoppingCart());
+                    quickContentShoppingCart();
+                }
             }
-        }
-    })
-}
+        });
+    }
+};

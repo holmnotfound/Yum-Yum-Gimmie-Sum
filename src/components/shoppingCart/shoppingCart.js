@@ -26,6 +26,31 @@ export const setUpShoppingCart = () => {
     return shoppingCartContainer; 
 }
 
+export const quickContentShoppingCart = () => {
+    const activeUser = activeUserStorage.getActiveUser();
+    let shoppingCart;
+    
+    if (activeUser) {
+        shoppingCart = activeUser.getShoppingCart();
+    } else {
+    shoppingCart = [];
+    }
+
+    const cartIcon = document.querySelector('.shopping-cart__img');
+
+    let cartBadge = document.querySelector('.shopping-cart__badge');
+    if (cartBadge) {
+        cartBadge.remove();
+    }
+
+    if (shoppingCart.length > 0) {
+        cartBadge = document.createElement('span');
+        cartBadge.classList.add('shopping-cart__badge');
+        cartBadge.textContent = shoppingCart.reduce((sum, item) => sum + item.quantity, 0);
+        cartIcon.parentElement.appendChild(cartBadge);
+    }
+};
+
 export const renderShoppingCart = (shoppingCart) => {
     const shoppingCartList = document.querySelector('.shopping-cart__list');
     shoppingCartList.replaceChildren()
