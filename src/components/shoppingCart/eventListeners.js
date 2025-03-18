@@ -1,17 +1,13 @@
-import { renderShoppingCart, quickContentShoppingCart } from "../../../src/components/shoppingCart/shoppingCart.js";
+import { renderShoppingCart } from "../../../src/components/shoppingCart/shoppingCart.js";
 import { activeUserStorage } from "../../utils/usersStorage.js";
 
 export const setUpShoppingCartEventListeners = () => {
-    if (!document.querySelector('.shopping-cart__container')) {
-        return;
-    }
-
     toggleShoppingCartClick();
-    changeProductAmount();
+    changeProductAmount()
 
-    const parentContainer = document.querySelector('.shopping-cart__container');
+    const parentContainer = document.getElementsByClassName('shopping-cart__container')[0]
     changeProductAmountClick(parentContainer);
-};
+}
 
 function toggleShoppingCart(event) {
     const shoppingCartImg = document.querySelector('.shopping-cart__img');
@@ -84,49 +80,20 @@ const changeProductAmount = () => {
     }
 };
 
-// const changeProductAmountClick = () => {
-//     const shoppingCartList = document.querySelector('.shopping-cart__list');
-    
-//     if (shoppingCartList) {
-//         shoppingCartList.addEventListener('click', (e) => {
-//             const itemID = e.target.closest('li').getAttribute('data-id')
-//             const activeCustomer = activeUserStorage.getActiveUser()
-//             if (itemID) {
-//                 if (e.target.classList.contains('arrow-increment')) {
-//                     activeCustomer.addItemToShoppingCart(itemID)
-//                     renderShoppingCart(activeCustomer.getShoppingCart())
-//                 }
-                
-//                 if (e.target.classList.contains('arrow-decrement')) {
-//                     activeCustomer.removeItemFromCart(itemID)
-//                     renderShoppingCart(activeCustomer.getShoppingCart())
-//                 }
-//             }
-//         })
-//     }
-// }
-
-const changeProductAmountClick = () => {
-    const shoppingCartList = document.querySelector('.shopping-cart__list');
-    
-    if (shoppingCartList) {
-        shoppingCartList.addEventListener('click', (e) => {
-            const itemID = e.target.closest('li')?.getAttribute('data-id');
-            const activeCustomer = activeUserStorage.getActiveUser();
-            
-            if (itemID) {
-                if (e.target.classList.contains('arrow-increment')) {
-                    activeCustomer.addItemToShoppingCart(itemID);
-                    renderShoppingCart(activeCustomer.getShoppingCart());
-                    quickContentShoppingCart();
-                }
-                
-                if (e.target.classList.contains('arrow-decrement')) {
-                    activeCustomer.removeItemFromCart(itemID);
-                    renderShoppingCart(activeCustomer.getShoppingCart());
-                    quickContentShoppingCart();
-                }
+export const changeProductAmountClick = (parentContainer) => {
+    parentContainer.addEventListener('click', (e) => {
+        const itemID = e.target.closest('li').getAttribute('data-id')
+        const activeCustomer = activeUserStorage.getActiveUser()
+        if (itemID) {
+            if (e.target.classList.contains('arrow-increment')) {
+                activeCustomer.addItemToShoppingCart(itemID)
+                renderShoppingCart(activeCustomer.getShoppingCart())
             }
-        });
-    }
-};
+            
+            if (e.target.classList.contains('arrow-decrement')) {
+                activeCustomer.removeItemFromCart(itemID)
+                renderShoppingCart(activeCustomer.getShoppingCart())
+            }
+        }
+    })
+}
