@@ -13,7 +13,6 @@ export const setUpShoppingCartEventListeners = () => {
     const shoppingCartList = document.querySelector('.shopping-cart__list');
     
     if (shoppingCartImg && shoppingCartList) {
-
         shoppingCartImg.addEventListener('keydown', (event) => {
             
 
@@ -95,6 +94,7 @@ function toggleShoppingCartClick(){
             shoppingCartList.setAttribute('aria-hidden', 'false') :
             shoppingCartList.setAttribute('aria-hidden', 'true')
             console.log()
+
         })
     }
 }
