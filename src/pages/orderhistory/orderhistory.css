@@ -216,3 +216,27 @@ html, body {
   .footer__follow img {
     width: 1.5em;
   }
+
+  .popup__container {
+    width: 20em;
+    height: 5em;
+    position: fixed;
+    background-color: var(--coal);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    color: var(--text-light-grey);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
+
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+
+.popup__heading {
+    text-align: center;
+    padding: 20px;;
+}
