@@ -11,7 +11,7 @@ form.addEventListener('submit', (e) => {
     const formDataObj = Object.fromEntries(formData.entries());
     
     if(validateRegistration(formDataObj)) {
-        const newUser = new Customer(formDataObj.email, formDataObj.password, 'Customer', formDataObj.email, formDataObj.profile_image);
+        const newUser = new Customer(formDataObj.username, formDataObj.password, 'Customer', formDataObj.email, formDataObj.profile_image);
         storeUsers.addUserToStorage(newUser);
 
         const button = document.querySelector('#register-btn--register'); 
