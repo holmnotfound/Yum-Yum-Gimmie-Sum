@@ -90,7 +90,7 @@ const setUpSaveChangesButton = (activeUser) => {
             }            
         }
         setTimeout(() => {
-            window.location.href = '/src/pages/profil/profil.html'
+            window.location.href = 'profil.html'
         }, 1500);
     })
 }
