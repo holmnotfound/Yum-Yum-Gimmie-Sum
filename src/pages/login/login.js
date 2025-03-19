@@ -3,10 +3,14 @@ import { ActiveCustomer} from "../../utils/createUsers.js";
 import { setUpShoppingCartEventListeners } from "../../components/shoppingCart/eventListeners.js";
 import { kundkorg } from "../../components/navbar/navbar.js";
 
+//lägger till admin med inlogg x x
+const storedUsers = storeUsers.getUsersInfo();
+const adminExists = storedUsers.some(user => user.role === "admin");
 
-const currentAdmin = new Admin ("x", "x", "admin", "x", "x");
-storeUsers.addUserToStorage(currentAdmin);
-console.log(currentAdmin);
+if (!adminExists) {
+    const currentAdmin = new ActiveCustomer("x", "x", "admin", "x", "x", []);
+    storeUsers.addUserToStorage(currentAdmin);
+}
 
 
 //Detta måste stå kvar
