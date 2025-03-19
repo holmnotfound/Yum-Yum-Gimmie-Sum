@@ -1,6 +1,7 @@
 import { changeProductAmountClick } from '../../components/shoppingCart/eventListeners.js';
-import { createShoppingCartHTML } from '../../components/shoppingCart/shoppingCart.js';
+import { createShoppingCartHTML, quickContentShoppingCart } from '../../components/shoppingCart/shoppingCart.js';
 import { activeUserStorage } from '../../utils/usersStorage.js';
+
 
 const menuItemsContainer = document.querySelector('.menu-items');
 const orderButton = document.querySelector('.order__button--primary');
@@ -61,11 +62,13 @@ renderCart()
 changeProductAmountClick(menuItemsContainer);
 menuItemsContainer.addEventListener('click', () => {
     renderCart()
+    quickContentShoppingCart()
 })
 
 updateOrderButtonAction();
 menuItemsContainer.addEventListener('click', () => {
     menuItemsContainer.innerHTML = '';
     renderCart();
+    quickContentShoppingCart()
     updateOrderButtonAction();
 });
