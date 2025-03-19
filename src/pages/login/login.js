@@ -3,7 +3,7 @@ import { menuNew } from "../../storage/data.js";
 import { ActiveCustomer, Admin, Customer } from "../../utils/createUsers.js";
 
 
-const currentAdmin = new Admin ("x", "x", "admin", "x", "x");
+const currentAdmin = new Admin ("z", "z", "admin", "z", "z");
 storeUsers.addUserToStorage(currentAdmin);
 console.log(currentAdmin);
 
@@ -71,4 +71,3 @@ console.log('hej')
        
     }
 }
-
