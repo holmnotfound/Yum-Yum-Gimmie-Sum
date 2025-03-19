@@ -2,10 +2,17 @@ import { renderShoppingCart, quickContentShoppingCart } from "../../../src/compo
 import { activeUserStorage } from "../../utils/usersStorage.js";
 
 export const setUpShoppingCartEventListeners = () => {
+    if (!document.querySelector('.shopping-cart__container')) {
+        return;
+    }
+
     toggleShoppingCartClick();
-    changeProductAmount()
-    changeProductAmountClick();
-}
+    changeProductAmount();
+
+    const parentContainer = document.querySelector('.shopping-cart__container');
+    changeProductAmountClick(parentContainer);
+    clearShoppingCart()
+};
 
 function toggleShoppingCart(event) {
     const shoppingCartImg = document.querySelector('.shopping-cart__img');
@@ -46,8 +53,6 @@ function toggleShoppingCartClick(){
             shoppingCartList.getAttribute('aria-hidden') === 'true' ?
             shoppingCartList.setAttribute('aria-hidden', 'false') :
             shoppingCartList.setAttribute('aria-hidden', 'true')
-            console.log()
-
         })
     }
 }
@@ -78,49 +83,35 @@ const changeProductAmount = () => {
     }
 };
 
-// const changeProductAmountClick = () => {
-//     const shoppingCartList = document.querySelector('.shopping-cart__list');
-    
-//     if (shoppingCartList) {
-//         shoppingCartList.addEventListener('click', (e) => {
-//             const itemID = e.target.closest('li').getAttribute('data-id')
-//             const activeCustomer = activeUserStorage.getActiveUser()
-//             if (itemID) {
-//                 if (e.target.classList.contains('arrow-increment')) {
-//                     activeCustomer.addItemToShoppingCart(itemID)
-//                     renderShoppingCart(activeCustomer.getShoppingCart())
-//                 }
-                
-//                 if (e.target.classList.contains('arrow-decrement')) {
-//                     activeCustomer.removeItemFromCart(itemID)
-//                     renderShoppingCart(activeCustomer.getShoppingCart())
-//                 }
-//             }
-//         })
-//     }
-// }
-
-const changeProductAmountClick = () => {
-    const shoppingCartList = document.querySelector('.shopping-cart__list');
-    
-    if (shoppingCartList) {
-        shoppingCartList.addEventListener('click', (e) => {
-            const itemID = e.target.closest('li')?.getAttribute('data-id');
-            const activeCustomer = activeUserStorage.getActiveUser();
-            
-            if (itemID) {
-                if (e.target.classList.contains('arrow-increment')) {
-                    activeCustomer.addItemToShoppingCart(itemID);
-                    renderShoppingCart(activeCustomer.getShoppingCart());
-                    quickContentShoppingCart();
-                }
-                
-                if (e.target.classList.contains('arrow-decrement')) {
-                    activeCustomer.removeItemFromCart(itemID);
-                    renderShoppingCart(activeCustomer.getShoppingCart());
-                    quickContentShoppingCart();
-                }
+export const changeProductAmountClick = (parentContainer) => {
+    parentContainer.addEventListener('click', (e) => {
+        const itemID = e.target.closest('li').getAttribute('data-id')
+        const activeCustomer = activeUserStorage.getActiveUser()
+        if (itemID) {
+            if (e.target.classList.contains('arrow-increment')) {
+                activeCustomer.addItemToShoppingCart(itemID)
+                renderShoppingCart(activeCustomer.getShoppingCart())
             }
-        });
-    }
+            
+            if (e.target.classList.contains('arrow-decrement')) {
+                activeCustomer.removeItemFromCart(itemID)
+                renderShoppingCart(activeCustomer.getShoppingCart())
+            }
+        }
+    })
+};
+
+const clearShoppingCart = () => {
+    const shoppingCartList = document.querySelector('.shopping-cart__list');
+
+    shoppingCartList.addEventListener('click', (e) => {
+        if (shoppingCartList) {
+            if (e.target.classList.contains('trash__img')) {
+                const activeCustomer = activeUserStorage.getActiveUser();
+                activeCustomer.clearShoppingCart()
+                renderShoppingCart(activeCustomer.getShoppingCart());
+                quickContentShoppingCart()
+            }
+        }
+    })
 };

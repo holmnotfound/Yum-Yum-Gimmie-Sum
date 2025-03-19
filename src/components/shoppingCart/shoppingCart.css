@@ -58,7 +58,8 @@
 
 .shopping-cart__container > img {
     width: 30px;
- }
+}
+    
 
 .arrow {
     width: 20px;
@@ -145,4 +146,27 @@
     align-items: center;
     justify-content: center;
     transform: translate(50%, -50%);
+}
+
+.shopping-cart__clear {
+    border: none;
+    background-color: transparent;
+}
+
+.trash__img {
+    width: 25px;
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+.wrapper > h2::after {
+    border-bottom: 1px solid #e2e2e2;
+    content: '';
+    width: 100%;
+    top: -10px;
+    left: 0;
+    position: absolute;
 }
