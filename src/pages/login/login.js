@@ -1,6 +1,5 @@
 import { activeUserStorage, storeUsers } from "../../../src/utils/usersStorage.js";
-import { menuNew } from "../../storage/data.js";
-import { ActiveCustomer, Admin, Customer } from "../../utils/createUsers.js";
+import { ActiveCustomer} from "../../utils/createUsers.js";
 import { setUpShoppingCartEventListeners } from "../../components/shoppingCart/eventListeners.js";
 import { kundkorg } from "../../components/navbar/navbar.js";
 
@@ -10,16 +9,11 @@ storeUsers.addUserToStorage(currentAdmin);
 console.log(currentAdmin);
 
 
-//ser till att validateForm byter sida till menu korrekt
-/* if(window.location.pathname.includes('/src/pages/menu/menu.html')) {
-    buildMenu(menuNew)
-    console.log(menuNew);  
-} */
+//Detta måste stå kvar
     /* kundkorg(); */
  setUpShoppingCartEventListeners();
  addEventListeners(); 
 
-//loggar vilka users som finns
 const users = storeUsers.getUsersInfo();
 console.log(users);
 
@@ -38,9 +32,6 @@ function addEventListeners() {
     }
 }
 
-// validerar form genom find, söker efter rätt user och kollar mail & lösen.
-// vid lyckad inloggning - sätter user som activeUser och byter sida till menu
-// om inloggningen misslyckas - alert
 function validateForm() {
 
 console.log('hej')

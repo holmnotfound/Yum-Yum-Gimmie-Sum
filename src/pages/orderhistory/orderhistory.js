@@ -3,7 +3,6 @@ import { activeUserStorage } from "../../utils/usersStorage.js";
 
 closeSidebar(), clickHam();
 
-// orderhistorik använd för att testa funktionen "renderReceipt". Bara att ändra argument i funktionsanropet längst ner. Det här objektet kan sedan tas bort.  
 const orderHistory = {
     orders: [
         {
