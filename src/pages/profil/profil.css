@@ -158,6 +158,18 @@ input[type="submit"] {
     border-radius: 5px; 
 }
 
+.orderhistory-button {
+    background-color: var(--leaf-green);
+    color: var(--text-white);
+    font-size: var(--menu-item-title);
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 5px; 
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
 
 .login-btn {
     margin-top: 1rem;
