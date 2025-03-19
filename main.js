@@ -45,6 +45,3 @@ function logInBtn() {
         }
     });
 }
-
-menuBtn()
-logInBtn()

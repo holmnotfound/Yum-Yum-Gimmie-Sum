@@ -27,8 +27,7 @@ body {
 
 h1 {
     padding-bottom: 1rem;
-    color: #ffffff;
-    margin-top: 1em;
+    color: #000000;
 }
 
 .login-form {
@@ -86,7 +85,7 @@ label {
     font-size: var(--menu-item-title);
     font-weight: bold;
     color: var(--coal);
-    
+    font-family: 'Fira Sans';
 }
 
 input {
