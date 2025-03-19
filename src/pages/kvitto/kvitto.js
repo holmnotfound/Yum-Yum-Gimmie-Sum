@@ -1,7 +1,8 @@
 import { closeSidebar, clickHam } from "../../components/navbar/navbar.js";
 import { activeUserStorage } from "../../utils/usersStorage.js";
+import { changeHamMeny } from "../../components/navbar/changeHamNav.js";
 
-closeSidebar(), clickHam();
+closeSidebar(), clickHam(), changeHamMeny();
 
 function menuBtn() {
     const menuBtn = document.querySelector(".ny-beställning-btn");
