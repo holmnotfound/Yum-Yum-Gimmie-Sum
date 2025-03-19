@@ -87,7 +87,7 @@ const setUpSaveChangesButton = (activeUser) => {
                 resetForm()
             }            
         }
-        window.location.href = '/Yum-Yum-Gimmie-Sum/src/pages/profil/profil.html'
+        window.location.href = '/src/pages/profil/profil.html'
     })
 }
 
