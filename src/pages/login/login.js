@@ -3,7 +3,7 @@ import { menuNew } from "../../storage/data.js";
 import { ActiveCustomer, Admin, Customer } from "../../utils/createUsers.js";
 
 
-const currentAdmin = new Admin ("z", "z", "admin", "z", "z");
+const currentAdmin = new Admin ("x", "x", "admin", "x", "x");
 storeUsers.addUserToStorage(currentAdmin);
 console.log(currentAdmin);
 
