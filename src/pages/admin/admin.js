@@ -1,8 +1,3 @@
-import { closeSidebar, clickHam } from "../../components/navbar/navbar.js";
-import { activeUserStorage } from "../../utils/usersStorage.js";
-
-closeSidebar(), clickHam();
-
 const orderHistory = {
     orders: [
         {
@@ -195,7 +190,76 @@ function renderReceipt(orderHistory) {
 }
 
 renderReceipt(orderHistory.orders);
+addeventListenerLoggaUt();
+
+function addeventListenerLoggaUt(){
+    const loggaUt = document.querySelector(".logga-ut");
+
+    loggaUt.addEventListener('click', Event => {
+        window.location.href="../../../src/pages/login/login.html"
+    });    
+}
 
 
 
+// funktioner för google chart
+function loadGoogleCharts(callback) {
+    const script = document.createElement("script");
+    script.src = "https://www.gstatic.com/charts/loader.js";
+    script.type = "text/javascript";
+    script.onload = callback; 
+    document.head.appendChild(script);
+}
+
+
+function drawChart() {
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(() => {
+        var data = new google.visualization.DataTable();
+        data.addColumn("string", "Topping");
+        data.addColumn("number", "Slices");
+        data.addRows([
+            ["Bangkok", 5],
+            ["Karlstad", 4],
+            ["Sweet n Sour", 3],
+            ["Loka Granatäpple", 3],
+            ["Fanta Exotic", 1]
+        ]);
+
+        var options = {
+            title: "Statistik",
+            width: "100%",
+            height: 250,
+            backgroundColor: "transparent", 
+            fontName: "Fira Sans",
+            fontSize: 14,
+            titleTextStyle: {
+                color: "#333",
+                fontSize: 18,
+                bold: true
+            },
+            pieHole: 0.4, 
+            colors: ["#FF5733", "#33FF57", "#3357FF", "#FFC300", "#C70039"], 
+            legend: {
+                position: "bottom",
+                textStyle: { color: "#666", fontSize: 12 }
+            },
+            chartArea: {
+                width: "90%", 
+                height: "80%"
+            }
+        };
+
+        var chartDiv = document.getElementById("chart_div");
+        if (chartDiv) {
+            var chart = new google.visualization.PieChart(chartDiv);
+            chart.draw(data, options);
+        } else {
+            console.error("Element with ID 'chart_div' not found.");
+        }
+    });
+}
+
+
+loadGoogleCharts(drawChart);
 
