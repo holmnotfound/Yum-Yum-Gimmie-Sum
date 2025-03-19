@@ -86,7 +86,7 @@ label {
     font-size: var(--menu-item-title);
     font-weight: bold;
     color: var(--coal);
-    
+    font-family: 'Fira Sans';
 }
 
 input {
