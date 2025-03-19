@@ -1,6 +1,7 @@
 import { renderShoppingCart, quickContentShoppingCart } from "../../../src/components/shoppingCart/shoppingCart.js";
 import { activeUserStorage } from "../../utils/usersStorage.js";
 
+
 export const setUpShoppingCartEventListeners = () => {
     if (!document.querySelector('.shopping-cart__container')) {
         return;
@@ -91,11 +92,14 @@ export const changeProductAmountClick = (parentContainer) => {
             if (e.target.classList.contains('arrow-increment')) {
                 activeCustomer.addItemToShoppingCart(itemID)
                 renderShoppingCart(activeCustomer.getShoppingCart())
+                quickContentShoppingCart()
             }
             
             if (e.target.classList.contains('arrow-decrement')) {
                 activeCustomer.removeItemFromCart(itemID)
                 renderShoppingCart(activeCustomer.getShoppingCart())
+                quickContentShoppingCart()
+
             }
         }
     })
