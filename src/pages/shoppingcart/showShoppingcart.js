@@ -1,6 +1,10 @@
 import { changeProductAmountClick } from '../../components/shoppingCart/eventListeners.js';
 import { createShoppingCartHTML, quickContentShoppingCart } from '../../components/shoppingCart/shoppingCart.js';
 import { activeUserStorage } from '../../utils/usersStorage.js';
+import { changeHamMeny } from "../../components/navbar/changeHamNav.js";
+
+
+changeHamMeny();
 
 
 const menuItemsContainer = document.querySelector('.menu-items');
