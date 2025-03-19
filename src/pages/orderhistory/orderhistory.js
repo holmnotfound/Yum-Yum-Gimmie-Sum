@@ -1,7 +1,9 @@
 import { closeSidebar, clickHam } from "../../components/navbar/navbar.js";
 import { activeUserStorage } from "../../utils/usersStorage.js";
+import { changeHamMeny } from "../../components/navbar/changeHamNav.js";
 
-closeSidebar(), clickHam();
+
+closeSidebar(), clickHam(), changeHamMeny();
 
 const orderHistory = {
     orders: [

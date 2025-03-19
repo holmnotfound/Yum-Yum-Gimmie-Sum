@@ -1,4 +1,7 @@
 import { activeUserStorage, storeUsers } from "../../utils/usersStorage.js"
+import { changeHamMeny } from "../../components/navbar/changeHamNav.js";
+
+changeHamMeny();
 
 const setUpUserProfile = () => {
     const activeUser = activeUserStorage.getActiveUser()

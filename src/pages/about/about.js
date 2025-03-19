@@ -8,6 +8,8 @@
 setupCarousel();
 
 //Denna funktion skapar funktionalitet för karusellen
+
+
 function setupCarousel() {
     const buttons = document.querySelectorAll('[data-carousel-btn]');
     buttons.forEach(btn => {

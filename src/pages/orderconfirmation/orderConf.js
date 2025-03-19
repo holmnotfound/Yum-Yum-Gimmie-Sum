@@ -1,4 +1,7 @@
 import { displayETA } from "../../utils/randomNumber.js";
+import { changeHamMeny } from "../../components/navbar/changeHamNav.js";
+
+changeHamMeny();
 
 // Funktionerna nedan laddar ett ordernummer varje gång sidan laddas om, sparar ordernumret och ser till att det är unikt
 const usedOrderNumbers = new Set();

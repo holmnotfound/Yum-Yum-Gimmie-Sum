@@ -2,16 +2,20 @@ import { buildMenu, filterMenu, menuItemClick } from "./src/pages/menu/menu.js";
 import { menuNew } from "./src/storage/data.js"
 import { quickContentShoppingCart } from "./src/components/shoppingCart/shoppingCart.js";
 import { setUpShoppingCartEventListeners } from "./src/components/shoppingCart/eventListeners.js";
+import { changeHamMeny } from "./src/components/navbar/changeHamNav.js";
 
 if (window.location.pathname.includes('/src/pages/menu/menu.html')) {
     buildMenu(menuNew)
     filterMenu()
     // quickContentShoppingCart()
     menuItemClick()
+    changeHamMeny();
+
 
 } else if (window.location.pathname.includes('index.html')) {
     menuBtn()
     logInBtn()
+  
 }
 
 if (!window.location.pathname.includes('index.html')) {
