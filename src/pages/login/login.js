@@ -18,7 +18,7 @@ if (!adminExists) {
     /* kundkorg(); */
  setUpShoppingCartEventListeners();
  addEventListeners(); 
- quickContentShoppingCart()
+/*  quickContentShoppingCart() */
 
 const users = storeUsers.getUsersInfo();
 console.log(users);
@@ -67,6 +67,7 @@ console.log('hej')
             const activeCustomer = new ActiveCustomer(user.username, user.password, user.role, user.email, user.profile_image, user.shoppingCart)
             activeUserStorage.addUserToStorage(activeCustomer)
             const userName = activeCustomer.username;
+            console.log(userName)
             showPopUp(`Loggar in som ${userName}...`);
             setTimeout(() => {
             window.location.href = "../../../src/pages/menu/menu.html";
