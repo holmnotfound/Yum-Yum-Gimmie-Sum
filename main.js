@@ -6,12 +6,16 @@ import { setUpShoppingCartEventListeners } from "./src/components/shoppingCart/e
 if (window.location.pathname.includes('/src/pages/menu/menu.html')) {
     buildMenu(menuNew)
     filterMenu()
-    quickContentShoppingCart()
+    // quickContentShoppingCart()
     menuItemClick()
 
 } else if (window.location.pathname.includes('index.html')) {
     menuBtn()
     logInBtn()
+}
+
+if (!window.location.pathname.includes('index.html')) {
+    quickContentShoppingCart()
 }
 
 setUpShoppingCartEventListeners();

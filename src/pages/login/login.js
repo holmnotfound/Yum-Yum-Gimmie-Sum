@@ -2,6 +2,7 @@ import { activeUserStorage, storeUsers } from "../../../src/utils/usersStorage.j
 import { ActiveCustomer} from "../../utils/createUsers.js";
 import { setUpShoppingCartEventListeners } from "../../components/shoppingCart/eventListeners.js";
 import { kundkorg } from "../../components/navbar/navbar.js";
+import { quickContentShoppingCart } from "../../components/shoppingCart/shoppingCart.js";
 
 //lägger till admin med inlogg x x
 const storedUsers = storeUsers.getUsersInfo();
@@ -17,6 +18,7 @@ if (!adminExists) {
     /* kundkorg(); */
  setUpShoppingCartEventListeners();
  addEventListeners(); 
+ quickContentShoppingCart()
 
 const users = storeUsers.getUsersInfo();
 console.log(users);
