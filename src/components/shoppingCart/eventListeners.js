@@ -1,4 +1,4 @@
-import { renderShoppingCart } from "../../../src/components/shoppingCart/shoppingCart.js";
+import { renderShoppingCart, quickContentShoppingCart } from "../../../src/components/shoppingCart/shoppingCart.js";
 import { activeUserStorage } from "../../utils/usersStorage.js";
 
 export const setUpShoppingCartEventListeners = () => {
