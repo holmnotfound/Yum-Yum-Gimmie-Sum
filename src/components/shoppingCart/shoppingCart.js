@@ -113,7 +113,12 @@ const createShoppingCartNavHTML = () => {
     let total = calculateTotal(activeUser.getShoppingCart())
     return `
         <li class="shopping-cart__nav">
-            <h2 class="total-amount">Total: ${total} SEK</h2>
+            <section class="wrapper">
+                <h2 class="total-amount">Total: ${total} SEK</h2>
+                <button class="shopping-cart__clear" aria-label="Click to clear shopping cart">
+                    <img class="trash__img" src="../../../images/trash-img.svg" alt="Click to clear shopping cart"/>
+                </button>
+            </section>
             <button class="shopping-cart__nav--button">
                 TILL KASSAN
             </button>

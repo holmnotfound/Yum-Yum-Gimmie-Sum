@@ -108,6 +108,12 @@ export class ActiveCustomer extends Customer {
         }
     }
 
+    clearShoppingCart() {
+        this.shoppingCart = [];
+        activeUserStorage.saveUsers();
+        this.updateUserInUsers();
+    }
+
     getShoppingCart() {
         return [...this.shoppingCart];
     }

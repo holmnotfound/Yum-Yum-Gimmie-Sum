@@ -11,6 +11,7 @@ export const setUpShoppingCartEventListeners = () => {
 
     const parentContainer = document.querySelector('.shopping-cart__container');
     changeProductAmountClick(parentContainer);
+    clearShoppingCart()
 };
 
 function toggleShoppingCart(event) {
@@ -52,8 +53,6 @@ function toggleShoppingCartClick(){
             shoppingCartList.getAttribute('aria-hidden') === 'true' ?
             shoppingCartList.setAttribute('aria-hidden', 'false') :
             shoppingCartList.setAttribute('aria-hidden', 'true')
-            console.log()
-
         })
     }
 }
@@ -100,4 +99,19 @@ export const changeProductAmountClick = (parentContainer) => {
             }
         }
     })
-}
+};
+
+const clearShoppingCart = () => {
+    const shoppingCartList = document.querySelector('.shopping-cart__list');
+
+    shoppingCartList.addEventListener('click', (e) => {
+        if (shoppingCartList) {
+            if (e.target.classList.contains('trash__img')) {
+                const activeCustomer = activeUserStorage.getActiveUser();
+                activeCustomer.clearShoppingCart()
+                renderShoppingCart(activeCustomer.getShoppingCart());
+                quickContentShoppingCart()
+            }
+        }
+    })
+};
