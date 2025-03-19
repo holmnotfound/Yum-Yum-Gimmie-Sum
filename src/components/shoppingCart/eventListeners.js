@@ -5,6 +5,7 @@ export const setUpShoppingCartEventListeners = () => {
     toggleShoppingCartClick();
     changeProductAmount()
     changeProductAmountClick();
+    clearShoppingCart()
 }
 
 function toggleShoppingCart(event) {
@@ -46,8 +47,6 @@ function toggleShoppingCartClick(){
             shoppingCartList.getAttribute('aria-hidden') === 'true' ?
             shoppingCartList.setAttribute('aria-hidden', 'false') :
             shoppingCartList.setAttribute('aria-hidden', 'true')
-            console.log()
-
         })
     }
 }
@@ -78,27 +77,20 @@ const changeProductAmount = () => {
     }
 };
 
-// const changeProductAmountClick = () => {
-//     const shoppingCartList = document.querySelector('.shopping-cart__list');
-    
-//     if (shoppingCartList) {
-//         shoppingCartList.addEventListener('click', (e) => {
-//             const itemID = e.target.closest('li').getAttribute('data-id')
-//             const activeCustomer = activeUserStorage.getActiveUser()
-//             if (itemID) {
-//                 if (e.target.classList.contains('arrow-increment')) {
-//                     activeCustomer.addItemToShoppingCart(itemID)
-//                     renderShoppingCart(activeCustomer.getShoppingCart())
-//                 }
-                
-//                 if (e.target.classList.contains('arrow-decrement')) {
-//                     activeCustomer.removeItemFromCart(itemID)
-//                     renderShoppingCart(activeCustomer.getShoppingCart())
-//                 }
-//             }
-//         })
-//     }
-// }
+const clearShoppingCart = () => {
+    const shoppingCartList = document.querySelector('.shopping-cart__list');
+
+    shoppingCartList.addEventListener('click', (e) => {
+        if (shoppingCartList) {
+            if (e.target.classList.contains('trash__img')) {
+                const activeCustomer = activeUserStorage.getActiveUser();
+                activeCustomer.clearShoppingCart()
+                renderShoppingCart(activeCustomer.getShoppingCart());
+                quickContentShoppingCart()
+            }
+        }
+    })
+}
 
 const changeProductAmountClick = () => {
     const shoppingCartList = document.querySelector('.shopping-cart__list');
