@@ -1,6 +1,8 @@
 import { activeUserStorage, storeUsers } from "../../../src/utils/usersStorage.js";
 import { menuNew } from "../../storage/data.js";
 import { ActiveCustomer, Admin, Customer } from "../../utils/createUsers.js";
+import { setUpShoppingCartEventListeners } from "../../components/shoppingCart/eventListeners.js";
+import { kundkorg } from "../../components/navbar/navbar.js";
 
 
 const currentAdmin = new Admin ("x", "x", "admin", "x", "x");
@@ -13,8 +15,9 @@ console.log(currentAdmin);
     buildMenu(menuNew)
     console.log(menuNew);  
 } */
-
-    addEventListeners(); 
+    /* kundkorg(); */
+ setUpShoppingCartEventListeners();
+ addEventListeners(); 
 
 //loggar vilka users som finns
 const users = storeUsers.getUsersInfo();

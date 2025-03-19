@@ -21,30 +21,88 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    margin: 0px !important;
+    margin: 0px;
     position: relative;
 }
 
 h1 {
     padding-bottom: 1rem;
-    align-items: center;
+    color: #ffffff;
 }
 
-.login-form {
+.user-form {
     background: var(--text-light-grey);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
     padding: 20px;  
     width: 320px;
-    height: 300px;
 }
 
-.logo {
-    margin: 1em auto;
-    margin-bottom: 30px;
-    height:120px;
-    width:100px;
+.profile-pic {
+    margin: 0 1em;
+    height:125px;
+    width:125px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-info > span {
+    font-size: 1.5rem;
+    color: var(--text-white);
+    font-weight: 700;
+    margin-bottom: 2em;
+}
+
+.email-section, .password-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+
+#profile-pic-input {
+    display: none;
+}
+
+.show-element {
+    display: flex;
+}
+
+.hide-element {
+    display: none;
+}
+
+.info-button {
+    color: var(--text-white);
+    background-color: var(--leaf-green);
+    opacity: 1;
+    border: none;
+    font-size: 1rem;
+    height: 1.5em;
+    width: 7em;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+#change-password-button {
+    width: 8em;
+}
+
+#save-changes {
+    background-color: var(--coal);
+    color: var(--text-white);
+    font-size: var(--menu-item-title);
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    border-radius: 5px; 
+    margin-top: 1em;
 }
 
 .login-form__buttons{
@@ -53,11 +111,6 @@ h1 {
     align-items: center;
     gap: 10px;
     margin-top: 15px; 
-}
-
-.login-form__forgot-password{
-    color: #353131;
-    text-align: left;
 }
 
 
@@ -78,7 +131,7 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 label {
@@ -92,9 +145,7 @@ input {
     padding: 10px;
     border: 1px solid var(--clay);
     border-radius: 5px;
-    font-size: var(--menu-item-description);
-    margin: 10px;
-    
+    font-size: var(--menu-item-description);    
 }
 
 input[type="submit"] {
@@ -129,4 +180,24 @@ input[type="submit"]:hover {
 
 .register-btn:hover {
     background-color: #8ED8BF;
+}
+
+.popup__container {
+    width: 15em;
+    height: 5em;
+    position: absolute;
+    background-color: var(--coal);
+    top: 50%;
+    left: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: var(--text-light-grey);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
+
+}
+
+.popup__heading {
+    text-align: center;
 }

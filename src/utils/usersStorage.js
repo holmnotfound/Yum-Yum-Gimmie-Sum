@@ -7,6 +7,8 @@ export const storeUsers = {
 
     addUserToStorage: function(user) {
         if(user) {
+            const usersStorage = this.getUsersInfo();
+            this.localUsers = usersStorage;
             this.localUsers.push(user);
             this.saveUsers();
         }
@@ -35,9 +37,13 @@ export const storeUsers = {
     },
 
     updateUser: function(user) {
+        this.getUsersInfo();
+
+        console.log(user);
         this.localUsers = this.localUsers.map(targetUser => 
             targetUser.username === user.username ? user : targetUser
         );
+        console.log(this.localUsers);
         this.saveUsers();
     }
 }
