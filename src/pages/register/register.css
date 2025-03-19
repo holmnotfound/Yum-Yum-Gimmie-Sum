@@ -27,7 +27,7 @@ body {
 
 h1 {
     padding-bottom: 1rem;
-    color: #ffffff;
+    color: var(--coal);
     margin-top: 1em;
 }
 
@@ -62,7 +62,7 @@ h1 {
 
 
 .login-form__buttons button{
-    color: var(--text-white);
+    color: var(--coal);
     font-family: 'Fira Sans', sans-serif;
     font-size: 24px;
     padding: 10px 50px;
@@ -118,7 +118,7 @@ input[type="submit"] {
 
 .register-btn {
     margin-bottom: 40px;
-    background-color: var(--leaf-green);
+    background-color: var(--page-background-color);
     opacity: 1;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
     width: 70%;
