@@ -50,22 +50,45 @@ console.log('hej')
   
     if (user) {
         if (user.role==="admin"){
-            alert('Inloggad som admin');
-            window.location.href = "../../../src/pages/admin/admin.html"
+           
+            showPopUp("Loggar in som admin...");
+            setTimeout(() => {
+            window.location.href = "../../../src/pages/admin/admin.html";
+            }, 2000);
+
+   
         }
         else{
-
-            alert(`${user.username} är inloggad`);
+            
             const activeCustomer = new ActiveCustomer(user.username, user.password, user.role, user.email, user.profile_image, user.shoppingCart)
             activeUserStorage.addUserToStorage(activeCustomer)
-            
+            const userName = activeCustomer.username;
+            showPopUp(`Loggar in som ${userName}...`);
+            setTimeout(() => {
             window.location.href = "../../../src/pages/menu/menu.html";
+            }, 2000);
             
         } 
     }
 
     else {
-        alert("Fel e-post/lösenord");
+        showPopUp("Fel e-post/lösenord");
        
     }
+}
+
+const showPopUp = (message) => {
+    const formContainer = document.querySelector('.login-form');
+    const popUpContainer = document.createElement('section');
+    popUpContainer.classList.add('popup__container');
+
+    popUpContainer.innerHTML = `
+        <h2 class="popup__heading">${message}</h2>
+    `;
+
+    formContainer.appendChild(popUpContainer);
+
+    setTimeout(() => {
+        popUpContainer.remove();    
+    }, 15000); // Show for 1.5 seconds
 }
