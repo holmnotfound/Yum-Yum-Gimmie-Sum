@@ -76,6 +76,7 @@ const setUpSaveChangesButton = (activeUser) => {
                 activeUserStorage.saveUsers();
                 storeUsers.updateUser(activeUser);
                 resetForm()
+                showPopUp()
             }
         }
 
@@ -85,9 +86,12 @@ const setUpSaveChangesButton = (activeUser) => {
                 activeUserStorage.saveUsers();
                 storeUsers.updateUser(activeUser);
                 resetForm()
+                showPopUp()
             }            
         }
-        window.location.href = '/src/pages/profil/profil.html'
+        setTimeout(() => {
+            window.location.href = '/src/pages/profil/profil.html'
+        }, 1500);
     })
 }
 
@@ -109,6 +113,22 @@ const resetForm = () => {
     
     emailInput.value = '';
     passwordInputNew.value = '';
+}
+
+const showPopUp = () => {
+    const formContainer = document.querySelector('.user-form')
+    const popUpContainer = document.createElement('section');
+    popUpContainer.classList.add('popup__container');
+    
+    popUpContainer.innerHTML = `
+        <h2 class="popup__heading">Ändringar sparade!</h2>
+    `
+
+    formContainer.appendChild(popUpContainer)
+
+    setTimeout(() => {
+        popUpContainer.remove();    
+    }, 1500);
 }
 
 

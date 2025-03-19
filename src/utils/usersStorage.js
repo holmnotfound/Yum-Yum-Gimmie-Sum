@@ -6,8 +6,9 @@ export const storeUsers = {
     localUsers: [],
 
     addUserToStorage: function(user) {
-        console.log(user)
         if(user) {
+            const usersStorage = this.getUsersInfo();
+            this.localUsers = usersStorage;
             this.localUsers.push(user);
             this.saveUsers();
         }
