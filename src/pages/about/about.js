@@ -9,6 +9,8 @@ setupCarousel();
 
 //Denna funktion skapar funktionalitet för karusellen
 
+import { changeHamMeny } from "../../components/navbar/changeHamNav.js";
+changeHamMeny();
 
 function setupCarousel() {
     const buttons = document.querySelectorAll('[data-carousel-btn]');
