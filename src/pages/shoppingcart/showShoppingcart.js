@@ -3,10 +3,26 @@ import { createShoppingCartHTML } from '../../components/shoppingCart/shoppingCa
 import { activeUserStorage } from '../../utils/usersStorage.js';
 
 const menuItemsContainer = document.querySelector('.menu-items');
+const orderButton = document.querySelector('.order__button--primary');
+
+function updateOrderButtonAction() {
+    const activeCustomer = activeUserStorage.getActiveUser();
+    const shoppingCart = activeCustomer ? activeCustomer.getShoppingCart() : [];
+
+    if (shoppingCart.length === 0) {
+        orderButton.disabled = true;
+        orderButton.classList.add("disabled");
+    } else {
+        orderButton.disabled = false;
+        orderButton.classList.remove("disabled");
+    }
+}
 
 function renderCart() {
     const activeCustomer = activeUserStorage.getActiveUser();
     const shoppingCart = activeCustomer ? activeCustomer.getShoppingCart() : [];
+
+    menuItemsContainer.innerHTML = '';
 
     if (shoppingCart.length > 0) {
         shoppingCart.forEach((item) => {
@@ -16,24 +32,40 @@ function renderCart() {
     } else {
         menuItemsContainer.textContent = "Din kundkorg är tom.";
     }
-    
+
     const totalAmount = shoppingCart.reduce((total, item) => total + item.quantity * item.price, 0);
     let totalAmountMoms = totalAmount * 1.25;
     const totalAmountElement = document.querySelector('.total-amount-checkout');
+    
     if (totalAmountElement) {
         totalAmountElement.textContent = `${totalAmountMoms} SEK`;
     }
+
+    updateOrderButtonAction();
 }
+
+orderButton.addEventListener('click', (e) => {
+    const activeCustomer = activeUserStorage.getActiveUser();
+    const shoppingCart = activeCustomer ? activeCustomer.getShoppingCart() : [];
+
+    if (shoppingCart.length === 0) {
+        console.log("Kundkorgen är tom.");
+        e.preventDefault();
+    } else {
+        window.location.href = '../orderconfirmation/orderConf.html';
+    }
+});
 
 renderCart()
 
 changeProductAmountClick(menuItemsContainer);
-menuItemsContainer.addEventListener('click', (e) => {
-    menuItemsContainer.innerHTML = ''
+menuItemsContainer.addEventListener('click', () => {
     renderCart()
 })
 
-const orderButton = document.querySelector('.order__button--primary');
-orderButton.addEventListener('click', () => {
-    window.location.href = '../orderconfirmation/orderConf.html';
+updateOrderButtonAction();
+menuItemsContainer.addEventListener('click', () => {
+    menuItemsContainer.innerHTML = '';
+    renderCart();
+    updateOrderButtonAction();
 });
