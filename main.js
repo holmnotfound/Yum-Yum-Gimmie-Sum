@@ -67,12 +67,14 @@ function checkActiveUser(){
 
 function checkIfLoggedIn() {
     const activeUser = activeUserStorage.getActiveUser(); 
-    if (activeUser===null){
-        return
+    console.log(activeUser); 
+
+    if (activeUser === null) {
+        return; 
     }
 
     const buttonText = document.querySelector(".landing__button--secondary");
     if (buttonText) { 
-        buttonText.innerHTML = "LOGGA UT";
-    } 
+        buttonText.innerHTML = "LOGGA UT"; 
+    }
 }
