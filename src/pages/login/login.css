@@ -130,3 +130,27 @@ input[type="submit"]:hover {
 .register-btn:hover {
     background-color: #8ED8BF;
 }
+
+.popup__container {
+    width: 20em;
+    height: 5em;
+    position: fixed; /* Better for popups */
+    background-color: var(--coal);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers it */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    color: var(--text-light-grey);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 3px 0px;
+
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+
+.popup__heading {
+    text-align: center;
+    padding: 20px;;
+}
