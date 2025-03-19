@@ -96,6 +96,7 @@ h1{
 .map-text p {
   font-size: 14px;
   color: var(--text-light-grey);
+  margin-top: 0.5em;
 }
 .map-wrapper {
   width: 100%;
@@ -112,26 +113,39 @@ gmp-map {
 
 .footer {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  background-color: var(--menulight);
+  background-color: var(--clay);
   color: var(--text-light-grey);
   padding: 0.9em;
 }
 
-.footer__contact,
+.footer__content,
 .footer__follow {
-  width: 130px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer__content {
+  justify-content: space-evenly;
+  margin-top: 0.5em;
 }
 
 .footer p {
-  font-size: 0.9em;
+  font-size: 0.8em;
+  font-weight: 500;
+  margin-top: 0.5em;
 }
 
 .footer__follow {
   display: flex;
-  flex-direction: column;
-  gap: 0.5em;
+  gap: 3em;
+  margin-bottom: 1em;
 }
 
 .footer__follow img {
