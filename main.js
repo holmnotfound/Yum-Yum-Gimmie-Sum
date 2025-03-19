@@ -1,14 +1,13 @@
-
 import { buildMenu, filterMenu } from "./src/pages/menu/menu.js";
 import { menuNew } from "./src/storage/data.js"
 import { quickContentShoppingCart } from "./src/components/shoppingCart/shoppingCart.js";
 import { setUpShoppingCartEventListeners } from "./src/components/shoppingCart/eventListeners.js";
 
-
 if (window.location.pathname.includes('/src/pages/menu/menu.html')) {
     buildMenu(menuNew)
     filterMenu()
     quickContentShoppingCart()
+    menuItemClick()
 
 } else if (window.location.pathname.includes('index.html')) {
     menuBtn()
@@ -16,7 +15,6 @@ if (window.location.pathname.includes('/src/pages/menu/menu.html')) {
 }
 
 setUpShoppingCartEventListeners();
-
 
 function menuBtn() {
     const menuBtn = document.querySelector(".landing__button--primary");

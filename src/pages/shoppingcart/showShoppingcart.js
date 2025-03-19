@@ -1,6 +1,7 @@
 import { changeProductAmountClick } from '../../components/shoppingCart/eventListeners.js';
-import { createShoppingCartHTML } from '../../components/shoppingCart/shoppingCart.js';
+import { createShoppingCartHTML, quickContentShoppingCart } from '../../components/shoppingCart/shoppingCart.js';
 import { activeUserStorage } from '../../utils/usersStorage.js';
+
 
 const menuItemsContainer = document.querySelector('.menu-items');
 const orderButton = document.querySelector('.order__button--primary');
@@ -18,7 +19,7 @@ function updateOrderButtonAction() {
     }
 }
 
-function renderCart() {
+export function renderCart() {
     const activeCustomer = activeUserStorage.getActiveUser();
     const shoppingCart = activeCustomer ? activeCustomer.getShoppingCart() : [];
 
@@ -40,7 +41,7 @@ function renderCart() {
     if (totalAmountElement) {
         totalAmountElement.textContent = `${totalAmountMoms} SEK`;
     }
-
+    quickContentShoppingCart()
     updateOrderButtonAction();
 }
 
@@ -61,11 +62,13 @@ renderCart()
 changeProductAmountClick(menuItemsContainer);
 menuItemsContainer.addEventListener('click', () => {
     renderCart()
+    quickContentShoppingCart()
 })
 
 updateOrderButtonAction();
 menuItemsContainer.addEventListener('click', () => {
     menuItemsContainer.innerHTML = '';
     renderCart();
+    quickContentShoppingCart()
     updateOrderButtonAction();
 });
