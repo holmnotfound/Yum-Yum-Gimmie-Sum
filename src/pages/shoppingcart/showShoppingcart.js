@@ -19,7 +19,7 @@ function updateOrderButtonAction() {
     }
 }
 
-function renderCart() {
+export function renderCart() {
     const activeCustomer = activeUserStorage.getActiveUser();
     const shoppingCart = activeCustomer ? activeCustomer.getShoppingCart() : [];
 
@@ -41,7 +41,7 @@ function renderCart() {
     if (totalAmountElement) {
         totalAmountElement.textContent = `${totalAmountMoms} SEK`;
     }
-
+    quickContentShoppingCart()
     updateOrderButtonAction();
 }
 
