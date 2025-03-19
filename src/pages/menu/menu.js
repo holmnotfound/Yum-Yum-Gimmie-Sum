@@ -147,4 +147,42 @@ export function filterMenu() {
 
 }
 
+export function menuItemClick() {
 
+    document.querySelectorAll(".menu__wonton").forEach((item) => {
+        item.addEventListener("click", () => {
+            item.classList.add("menu__clicked")
+            console.log("testar");
+            
+            setTimeout(() => {
+                item.classList.remove("menu__clicked")
+            }, 300)
+
+        })
+    })
+
+    document.querySelectorAll(".menu__dips-dip").forEach((item) => {
+        item.addEventListener("click", () => {
+            document.querySelector(".menu__dips-price").classList.add("menu__clicked")
+            console.log("testar");
+            
+            setTimeout(() => {
+                document.querySelector(".menu__dips-price").classList.remove("menu__clicked")
+            }, 300)
+
+        })
+    })
+
+    document.querySelectorAll(".menu__drinks-drink").forEach((item) => {
+        item.addEventListener("click", () => {
+            document.querySelector(".menu__drinks-price").classList.add("menu__clicked")
+            console.log("testar");
+            
+            setTimeout(() => {
+                document.querySelector(".menu__drinks-price").classList.remove("menu__clicked")
+            }, 300)
+
+        })
+    })
+
+}
