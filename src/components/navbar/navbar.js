@@ -38,5 +38,4 @@ export function kundkorg(){
     }
 }
 
-//Dessa två functions ska till script.main
 closeSidebar(); clickHam(); kundkorg();

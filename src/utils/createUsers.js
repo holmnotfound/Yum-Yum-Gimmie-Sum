@@ -10,7 +10,6 @@ class User {
         this.profile_image = profile_image;
     }
 
-    //Change user info
     changeUserName(newUsername) {
         this.username = newUsername;
     }
@@ -33,7 +32,6 @@ export class Customer extends User {
         this.orderHistory = [];
     }
 
-    //Handle orders
     addItemToShoppingCart(itemID) {
         
         const itemToBeAdded = menuNew.items.find(item => item.id === Number(itemID));
