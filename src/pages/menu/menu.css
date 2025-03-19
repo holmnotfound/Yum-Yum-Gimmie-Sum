@@ -97,7 +97,7 @@ h3 {
 }
 
 .menu__clicked h3{
-    color: red;
+    color: rgb(154, 207, 130);
 }
 
 .footer {

@@ -1,4 +1,4 @@
-import { buildMenu, filterMenu } from "./src/pages/menu/menu.js";
+import { buildMenu, filterMenu, menuItemClick } from "./src/pages/menu/menu.js";
 import { menuNew } from "./src/storage/data.js"
 import { quickContentShoppingCart } from "./src/components/shoppingCart/shoppingCart.js";
 import { setUpShoppingCartEventListeners } from "./src/components/shoppingCart/eventListeners.js";
