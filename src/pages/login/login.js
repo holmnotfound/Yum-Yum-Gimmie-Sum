@@ -54,7 +54,9 @@ console.log('hej')
             showPopUp("Loggar in som admin...");
             setTimeout(() => {
             window.location.href = "../../../src/pages/admin/admin.html";
-            }, 2000);
+            }, 1000);
+
+      
 
    
         }
@@ -66,7 +68,8 @@ console.log('hej')
             showPopUp(`Loggar in som ${userName}...`);
             setTimeout(() => {
             window.location.href = "../../../src/pages/menu/menu.html";
-            }, 2000);
+            }, 1000);
+            
             
         } 
     }
@@ -90,5 +93,5 @@ const showPopUp = (message) => {
 
     setTimeout(() => {
         popUpContainer.remove();    
-    }, 15000); // Show for 1.5 seconds
+    }, 1500); 
 }
