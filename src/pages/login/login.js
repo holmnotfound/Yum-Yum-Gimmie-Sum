@@ -71,9 +71,7 @@ console.log('hej')
             showPopUp(`Loggar in som ${userName}...`);
             setTimeout(() => {
             window.location.href = "../../../src/pages/menu/menu.html";
-            }, 1000);
-            
-            
+            }, 1000); 
         } 
     }
 
