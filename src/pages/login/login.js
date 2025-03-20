@@ -9,7 +9,7 @@ const storedUsers = storeUsers.getUsersInfo();
 const adminExists = storedUsers.some(user => user.role === "admin");
 
 if (!adminExists) {
-    const currentAdmin = new ActiveCustomer("x", "x", "admin", "x", "x", []);
+    const currentAdmin = new ActiveCustomer("admin", "admin", "admin", "x", "x", []);
     storeUsers.addUserToStorage(currentAdmin);
 }
 
