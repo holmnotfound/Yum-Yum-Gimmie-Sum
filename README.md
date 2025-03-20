@@ -1,6 +1,9 @@
 FIGMA
 https://www.figma.com/design/QSVgHJW3oLoKaMZILMUlxJ/Yum-Yum-Gimmie-Sum?node-id=0-1&m=dev&t=IRyDgi2hxnD2ui0O-1
 
+GRUPPREFLEKTIONEN:
+https://docs.google.com/document/d/1l4-0BFZXlDnd2ZyvI7J9-nQ_WoXL8poRebmC5JX-fi8/edit?usp=sharing
+
 Yum Yum Gimmie Sum
 🍔 Uppdrag: Rädda Yum Yum Gimmie Sum! 🌮 Yum Yum Gimmie Sum är den hetaste foodtruckkedjan i stan – deras burritos är legendariska, deras ramen får folk att gråta av lycka, och deras smash burgers har fått Michelin-inspektörer att skriva poesi. Men nu är katastrofen nära! 🚨
 
