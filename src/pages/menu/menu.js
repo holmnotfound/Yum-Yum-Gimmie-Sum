@@ -1,25 +1,26 @@
-import { closeSidebar, clickHam} from "../../components/navbar/navbar.js";
+import { closeSidebar, clickHam } from "../../components/navbar/navbar.js";
 import { activeUserStorage } from "../../utils/usersStorage.js";
 import { renderShoppingCart, quickContentShoppingCart } from "../../components/shoppingCart/shoppingCart.js";
+/* import { changeHamMeny } from "../../components/navbar/changeHamNav.js"; */
 
-closeSidebar(), clickHam();
+closeSidebar(), clickHam()  /* changeHamMeny(); */
 
 export function buildMenu(menu) {
     menu.items.forEach((menuItem) => {
-        
-        if(menuItem.type === 'wonton'){
-            buildWonton(menuItem)
-        } 
 
-        if(menuItem.type === 'dip'){
+        if (menuItem.type === 'wonton') {
+            buildWonton(menuItem)
+        }
+
+        if (menuItem.type === 'dip') {
             buildDip(menuItem)
         }
-    
-        if(menuItem.type === 'drink'){
+
+        if (menuItem.type === 'drink') {
             buildDrink(menuItem)
         }
 
-    })  
+    })
 }
 
 function buildWonton(wonton) {
@@ -37,7 +38,7 @@ function buildWonton(wonton) {
             </div>
         </div>
     `
-    
+
     setTimeout(() => {
         let newWonton = document.getElementById(wonton.id);
         if (newWonton) {
@@ -48,11 +49,11 @@ function buildWonton(wonton) {
                     handleMenuItemClick(wonton.id);
                 }
             });
-        
+
             newWonton.setAttribute("tabindex", "0");
         }
     }, 0);
-    
+
 }
 
 
@@ -74,7 +75,7 @@ function buildDip(dip) {
                     handleMenuItemClick(dip.id);
                 }
             });
-        
+
             newDip.setAttribute("tabindex", "0");
         }
     }, 0);
@@ -99,7 +100,7 @@ function buildDrink(drink) {
                     handleMenuItemClick(drink.id);
                 }
             });
-        
+
             newDrink.setAttribute("tabindex", "0");
         }
     }, 0);
@@ -115,33 +116,33 @@ function handleMenuItemClick(itemId) {
 
 export function filterMenu() {
     let toggleWontonsRef = document.querySelector("#toggleWontons")
-    toggleWontonsRef.addEventListener('change', function() {
-        if(toggleWontonsRef.checked) {
+    toggleWontonsRef.addEventListener('change', function () {
+        if (toggleWontonsRef.checked) {
             document.querySelector(".menu__wontons").classList.remove("d-none")
         } else {
-            document.querySelector(".menu__wontons").classList.add("d-none");    
+            document.querySelector(".menu__wontons").classList.add("d-none");
         }
     })
 
     let toggleDipsRef = document.querySelector("#toggleDips")
-    toggleDipsRef.addEventListener('change', function() {
-        if(toggleDipsRef.checked) {
+    toggleDipsRef.addEventListener('change', function () {
+        if (toggleDipsRef.checked) {
             document.querySelector(".menu__dips").classList.remove("d-none")
             document.querySelector(".menu__dips-price").classList.remove("d-none")
         } else {
             document.querySelector(".menu__dips").classList.add("d-none")
-            document.querySelector(".menu__dips-price").classList.add("d-none")  
+            document.querySelector(".menu__dips-price").classList.add("d-none")
         }
     })
 
     let toggleDrinksRef = document.querySelector("#toggleDrinks")
-    toggleDrinksRef.addEventListener('change', function() {
-        if(toggleDrinksRef.checked) {
+    toggleDrinksRef.addEventListener('change', function () {
+        if (toggleDrinksRef.checked) {
             document.querySelector(".menu__drinks").classList.remove("d-none")
             document.querySelector(".menu__drinks-price").classList.remove("d-none")
         } else {
             document.querySelector(".menu__drinks").classList.add("d-none")
-            document.querySelector(".menu__drinks-price").classList.add("d-none")  
+            document.querySelector(".menu__drinks-price").classList.add("d-none")
         }
     })
 
@@ -153,7 +154,7 @@ export function menuItemClick() {
         item.addEventListener("click", () => {
             item.classList.add("menu__clicked")
             console.log("testar");
-            
+
             setTimeout(() => {
                 item.classList.remove("menu__clicked")
             }, 300)
@@ -165,7 +166,7 @@ export function menuItemClick() {
         item.addEventListener("click", () => {
             document.querySelector(".menu__dips-price").classList.add("menu__clicked")
             console.log("testar");
-            
+
             setTimeout(() => {
                 document.querySelector(".menu__dips-price").classList.remove("menu__clicked")
             }, 300)
@@ -177,7 +178,7 @@ export function menuItemClick() {
         item.addEventListener("click", () => {
             document.querySelector(".menu__drinks-price").classList.add("menu__clicked")
             console.log("testar");
-            
+
             setTimeout(() => {
                 document.querySelector(".menu__drinks-price").classList.remove("menu__clicked")
             }, 300)
@@ -186,3 +187,7 @@ export function menuItemClick() {
     })
 
 }
+
+/* document.addEventListener("DOMContentLoaded", function () {
+    changeHamMeny();
+}) */

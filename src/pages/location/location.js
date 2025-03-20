@@ -1,4 +1,6 @@
 //API_KEY: AIzaSyBQZzX0qPJ8ZWTpcP19P0ry9gbREFXjTMg
+import { changeHamMeny } from "../../components/navbar/changeHamNav.js";
+changeHamMeny();
 
 export function getLocations(city) {
     const locations = {

@@ -197,6 +197,7 @@ function addeventListenerLoggaUt(){
 
     loggaUt.addEventListener('click', Event => {
         window.location.href="../../../src/pages/login/login.html"
+        localStorage.removeItem("activeCustomer");
     });    
 }
 

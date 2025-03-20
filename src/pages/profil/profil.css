@@ -60,9 +60,9 @@ h1 {
 
 .email-section, .password-section {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    width: 100%;
-    align-items: center;
+    gap: 10px;
 }
 
 
