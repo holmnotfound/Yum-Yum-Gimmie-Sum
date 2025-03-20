@@ -78,11 +78,39 @@ export const activeUserStorage = {
         }));
     },
 
+    // getActiveUser: function() {
+    //     let activeCustomerLocalStorage = localStorage.getItem("activeCustomer");
+    //     activeCustomerLocalStorage = JSON.parse(activeCustomerLocalStorage);
+
+    //         this.localActiveCustomer = new ActiveCustomer(
+    //         activeCustomerLocalStorage.username,
+    //         activeCustomerLocalStorage.password,
+    //         activeCustomerLocalStorage.role,
+    //         activeCustomerLocalStorage.email,
+    //         activeCustomerLocalStorage.profile_image,
+    //         activeCustomerLocalStorage.shoppingCart || []
+    //     );
+
+    // return this.localActiveCustomer; 
+    // }
     getActiveUser: function() {
         let activeCustomerLocalStorage = localStorage.getItem("activeCustomer");
+    
+        
+        if (!activeCustomerLocalStorage) {
+            return null; 
+        }
+    
+        
         activeCustomerLocalStorage = JSON.parse(activeCustomerLocalStorage);
-
-            this.localActiveCustomer = new ActiveCustomer(
+    
+       
+        if (!activeCustomerLocalStorage.username) {
+            return null;
+        }
+    
+        
+        this.localActiveCustomer = new ActiveCustomer(
             activeCustomerLocalStorage.username,
             activeCustomerLocalStorage.password,
             activeCustomerLocalStorage.role,
@@ -90,7 +118,7 @@ export const activeUserStorage = {
             activeCustomerLocalStorage.profile_image,
             activeCustomerLocalStorage.shoppingCart || []
         );
-
-    return this.localActiveCustomer; 
+    
+        return this.localActiveCustomer;
     }
 }
